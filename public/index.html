@@ -18,8 +18,236 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom Styling -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Custom Styling & Futuristic Vercel Theme -->
+    <style>
+        :root {
+            --main-color: #686CE4;
+            --blue-color: #3B3E98;
+            --orange-color: #FF6118;
+            --white-color: #ffffff;
+            --black-color: #0b0b0b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: #f8f9fa;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .font-expletus {
+            font-family: 'Expletus Sans', sans-serif !important;
+        }
+
+        .color-main {
+            color: var(--main-color) !important;
+        }
+
+        .color-blue {
+            color: var(--blue-color) !important;
+        }
+
+        .bg-blue {
+            background-color: var(--blue-color) !important;
+        }
+
+        .fw-600 { font-weight: 600; }
+        .fw-700 { font-weight: 700; }
+
+        /* Elegant Tab Content Transitions */
+        .main-tab-content {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            display: none;
+        }
+        .main-tab-content.active-tab {
+            opacity: 1;
+            transform: translateY(0px);
+            display: block;
+        }
+
+        /* Loader */
+        .loader-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #050505;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        .loader-p {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(104, 108, 228, 0.2);
+            border-top: 4px solid var(--orange-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Navbar with Glassmorphism */
+        .navbar {
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5) !important;
+            background: rgba(11, 11, 11, 0.85) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-family: 'Expletus Sans', sans-serif !important;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.nav-active {
+            color: var(--main-color) !important;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--main-color);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.nav-active::after {
+            width: 100%;
+        }
+        .dropdown-menu {
+            background-color: #121212;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .dropdown-item {
+            color: #fff;
+            transition: background 0.2s, padding-left 0.2s;
+        }
+        .dropdown-item:hover {
+            background-color: var(--blue-color);
+            color: #fff;
+            padding-left: 1.5rem;
+        }
+
+        /* Sections */
+        section { padding: 90px 0; }
+
+        /* Header / Hero with smooth zoom-in */
+        .header-home, .header-program, .header-participant, .header-organizer {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .header-home {
+            background: linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding-top: 100px;
+        }
+        .header-program {
+            background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding-top: 100px;
+        }
+        .header-participant {
+            background: linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding-top: 100px;
+            transition: background-image 0.6s ease-in-out;
+        }
+        .header-organizer {
+            background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding-top: 120px;
+        }
+
+        /* About Container Gradient */
+        .container-about {
+            background: linear-gradient(180deg, #101010 26.82%, #3B3E98 107.8%);
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Topics tags with smooth hover */
+        .topic-value {
+            border-radius: 50px;
+            font-size: 13px;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .topic-value:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-color: var(--orange-color) !important;
+            box-shadow: 0 5px 15px rgba(255, 97, 24, 0.4);
+        }
+
+        /* Organizers styling */
+        .border-organizers {
+            border: 1px solid rgba(255, 97, 24, 0.4);
+            box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3), 0px 10px 30px rgba(255, 97, 24, 0.15);
+            color: #fff;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .border-organizers:hover {
+            transform: translateY(-5px);
+            border-color: var(--orange-color);
+        }
+
+        /* Custom Dark Cards with Glow */
+        .custom-dark-card {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border-radius: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .custom-dark-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(104, 108, 228, 0.15);
+        }
+
+        .hover-slider-left { transition: all 0.3s ease; }
+        .hover-slider-left:hover { padding-left: 8px; color: var(--orange-color) !important; }
+
+        /* Notification Toast Modal */
+        #customToast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99999;
+            background: rgba(20, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 14px;
+            border-left: 4px solid var(--orange-color);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            display: none;
+            animation: slideInUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Buttons sleek effect */
+        .btn-primary {
+            background-color: var(--main-color);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #5559d8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(104, 108, 228, 0.4);
+        }
+    </style>
 </head>
 <body>
 
@@ -58,9 +286,9 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Last Event
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item fw-500 py-2" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022 <i class="fa-solid fa-external-link-alt ms-2 small text-muted"></i></a></li>
-                            <li><a class="dropdown-item fw-500 py-2" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021 <i class="fa-solid fa-external-link-alt ms-2 small text-muted"></i></a></li>
+                        <ul class="dropdown-menu dropdown-menu-end p-2">
+                            <li><a class="dropdown-item rounded-2 fw-500 py-2" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022 <i class="fa-solid fa-external-link-alt ms-2 small text-muted"></i></a></li>
+                            <li><a class="dropdown-item rounded-2 fw-500 py-2 mt-1" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021 <i class="fa-solid fa-external-link-alt ms-2 small text-muted"></i></a></li>
                         </ul>
                     </li>
                 </div>
@@ -69,32 +297,32 @@
     </nav>
 
     <!-- ==================== TAB 1: HOME ==================== -->
-    <div id="tab-home" class="main-tab-content">
+    <div id="tab-home" class="main-tab-content active-tab">
         <div class="container-fluid header-home py-5">
             <div class="container">
                 <div class="row" style="padding-top:70px">
                     <div class="col-lg-8 offset-lg-4">
-                        <h1 style="text-align: right" class="font-expletus fw-600 display-5">International Student Workshop on <span class="color-main font-expletus">Materials Science and Engineering</span> 2026</h1>
+                        <h1 style="text-align: right" class="font-expletus fw-600 display-5 animate__animated animate__fadeInDown">International Student Workshop on <span class="color-main font-expletus">Materials Science and Engineering</span> 2026</h1>
                     </div>
                 </div>
                 <div class="row text-center mt-5">
                     <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4"><span id="count1">1</span></h1>
+                        <h1 class="fw-700 display-4 text-white"><span id="count1">1</span></h1>
                         <label class="fw-700">Top International Universities</label> <br>
                         <span class="text-muted small">for Material Science and Engineering</span>
                     </div>
                     <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4"><span id="count2">1</span></h1>
+                        <h1 class="fw-700 display-4 text-white"><span id="count2">1</span></h1>
                         <label class="fw-700">Outstanding Keynotes Speakers</label> <br>
                         <span class="text-muted small">on Material Science and Engineering</span>
                     </div>
                     <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4"><span id="count3">1</span>+</h1>
+                        <h1 class="fw-700 display-4 text-white"><span id="count3">1</span>+</h1>
                         <label class="fw-700">Topic Discussion</label> <br>
                         <span class="text-muted small">about Material Science and Engineering</span>
                     </div>
                     <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4"><span id="count4">1</span>+</h1>
+                        <h1 class="fw-700 display-4 text-white"><span id="count4">1</span>+</h1>
                         <label class="fw-700">Professor and Student</label><br>
                         <span class="text-muted small">from 4 Top International Universities</span>
                     </div>
@@ -105,11 +333,11 @@
                         <p class="mb-4 mt-4 fw-600 text-warning"><i># MATERIALSENGINEERING</i></p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="#getToKnowAbout" class="btn bg-black text-white px-4 py-2 fw-600" style="border: 1px solid #707070; border-radius: 30px;">Learn More</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-600 shadow" style="background-color: var(--main-color); border: none; border-radius: 30px;" target="_blank">Submit Abstract</a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-600 shadow" style="border-radius: 30px;" target="_blank">Submit Abstract</a>
                         </div>
                     </div>
                     <div class="col-lg-6 text-center d-none d-lg-block">
-                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/group-partner.png" style="height:200px; filter: drop-shadow(0 10px 15px rgba(104,108,228,0.3))" alt="group-partner" onerror="this.src='https://placehold.co/400x200/121212/686CE4?text=ISWMSE+2026'">
+                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/group-partner.png" style="height:200px; filter: drop-shadow(0 10px 20px rgba(104,108,228,0.4))" alt="group-partner" onerror="this.src='https://placehold.co/400x200/121212/686CE4?text=ISWMSE+2026'">
                     </div>
                 </div>
             </div>
@@ -124,7 +352,7 @@
                 </div>
                 <div class="row my-4 my-lg-5">
                     <div class="col-lg-12">
-                        <div class="ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden">
+                        <div class="ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden border border-secondary">
                             <iframe src="https://www.youtube.com/embed/QBwiDEm23Fk?si=eHBF05f5Bcn7JNB6" title="ISWMSE Video" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -171,7 +399,7 @@
                     <div class="col-lg-8">
                         <h4 class="fw-700 text-white mb-4 font-expletus wow fadeInUp">Objective</h4>
                         <div class="card p-3 custom-dark-card shadow-sm">
-                            <div class="card-body fw-600 text-dark bg-white p-4 rounded-4" style="text-align:justify;">
+                            <div class="card-body fw-600 text-dark bg-white p-4 rounded-4 shadow-inner" style="text-align:justify;">
                                 <p>We are organizing this collaborative workshop in materials science and engineering to facilitate the exchange of scientific and technological knowledge, promote student education, and foster international partnerships among professors and students.</p>
                                 <p>Materials science and engineering have opened up new avenues for fundamental research, playing a crucial role in various technologies. Innovations in materials hold the potential to drive advancements in both science and technology. Each university and institution is actively researching materials science and engineering, specializing in their respective vital areas. Sharing these insights will deepen our understanding of materials, and this workshop provides a unique opportunity to initiate new joint research endeavors.</p>
                                 <p>While numerous international conferences are dedicated to materials science and engineering, it can be challenging for some students to participate in these events, and educational workshops for students are often limited. In our workshop, many students can present their research findings, and some may even become involved in the workshop's organization. </p>
@@ -236,7 +464,7 @@
                     <div class="col-lg-8 offset-lg-2 text-center">
                         <h2 class="text-white fw-600 wow fadeInUp">The Best Student Workshop about Material</h2>
                         <h2 class="text-white fw-600 wow fadeInUp">Science and Engineering</h2>
-                        <a href="#takeALook" onclick="switchTab('participant')" class="btn btn-primary px-5 py-3 mt-4 fw-600 shadow" style="background-color: var(--orange-color); border: none; border-radius: 27px;">Explore Participant Universities</a>
+                        <a onclick="switchTab('participant')" class="btn btn-primary px-5 py-3 mt-4 fw-600 shadow" style="background-color: var(--orange-color); border-radius: 27px; cursor: pointer;">Explore Participant Universities</a>
                     </div>
                 </div>
             </div>
@@ -269,16 +497,16 @@
                                         </div>
                                     </div>
                                     <div class="mt-5">
-                                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 fw-500 shadow" style="background-color: var(--main-color); border: none; border-radius: 25px;" id="home-uni-web" target="_blank">Know More</a>
+                                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 fw-500 shadow" style="border-radius: 25px;" id="home-uni-web" target="_blank">Know More</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 position-relative bg-dark">
                                     <img id="home-uni-image" src="https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-1.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 400px; transition: opacity 0.5s ease-in-out;" alt="Department" onerror="this.src='https://placehold.co/600x450/222/fff?text=University+View'">
                                     
-                                    <div id="home-uni-left" class="position-absolute d-flex align-items-center justify-content-center" style="top:50%; left:15px; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(59,62,152,0.4); border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.2s;">
+                                    <div id="home-uni-left" class="position-absolute d-flex align-items-center justify-content-center shadow" style="top:50%; left:15px; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.2s;">
                                         <i class="fa-solid fa-chevron-left text-white"></i>
                                     </div>
-                                    <div id="home-uni-right" class="position-absolute d-flex align-items-center justify-content-center" style="top:50%; right:15px; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(59,62,152,0.4); border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.2s;">
+                                    <div id="home-uni-right" class="position-absolute d-flex align-items-center justify-content-center shadow" style="top:50%; right:15px; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.2s;">
                                         <i class="fa-solid fa-chevron-right text-white"></i>
                                     </div>
                                 </div>
@@ -291,7 +519,7 @@
     </div>
 
     <!-- ==================== TAB 2: PROGRAM ==================== -->
-    <div id="tab-program" class="main-tab-content" style="display: none;">
+    <div id="tab-program" class="main-tab-content">
         <div class="container-fluid header-program py-5">
             <div class="container">
                 <div class="row" style="padding-top:70px">
@@ -320,7 +548,7 @@
                         <p class="mb-4 mt-4 fw-600 text-warning"><i># MATERIALSENGINEERING</i></p>
                         <div class="d-flex flex-wrap gap-3">
                             <a onclick="switchTab('home')" class="btn bg-black text-white px-4 py-2 fw-600" style="border: 1px solid #707070; border-radius: 30px; cursor: pointer;">Learn More</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-600 shadow" style="background-color: var(--main-color); border: none; border-radius: 30px;" target="_blank">Submit Abstract</a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-600 shadow" style="border-radius: 30px;" target="_blank">Submit Abstract</a>
                         </div>
                     </div>
                 </div>
@@ -397,7 +625,7 @@
     </div>
 
     <!-- ==================== TAB 3: PARTICIPANT UNIVERSITIES ==================== -->
-    <div id="tab-participant" class="main-tab-content" style="display: none;">
+    <div id="tab-participant" class="main-tab-content">
         <div class="container-fluid header-participant py-5" id="uni-header-bg">
             <div class="container py-5" style="padding-top:70px">
                 <div class="row justify-content-center text-center">
@@ -430,17 +658,17 @@
                         <h5 class="mt-2 text-warning" id="uni-subtitle">Sepuluh Nopember Institute of Technology</h5>
                         <span class="fw-700 text-muted" id="uni-subtitle2">Indonesia</span>
                         <div class="mt-4 d-flex justify-content-center justify-content-lg-start gap-4">
-                            <div id="uni-left" class="d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(59,62,152,0.4); border: 1px solid var(--orange-color); border-radius: 50%; cursor: pointer;">
+                            <div id="uni-left" class="d-flex align-items-center justify-content-center shadow" style="width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid var(--orange-color); border-radius: 50%; cursor: pointer; transition: 0.2s;">
                                 <i class="fa-solid fa-chevron-left" style="color: var(--orange-color);"></i>
                             </div>
-                            <div id="uni-right" class="d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(59,62,152,0.4); border: 1px solid var(--orange-color); border-radius: 50%; cursor: pointer;">
+                            <div id="uni-right" class="d-flex align-items-center justify-content-center shadow" style="width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid var(--orange-color); border-radius: 50%; cursor: pointer; transition: 0.2s;">
                                 <i class="fa-solid fa-chevron-right" style="color: var(--orange-color);"></i>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 mt-lg-0">
                         <p class="text-justify d-none d-lg-block text-light" id="uni-description">Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others</p>
-                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 mt-3 fw-600 shadow" style="background-color: var(--main-color); border: none; border-radius: 25px;" id="uni-web" target="_blank">Know More</a>
+                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 mt-3 fw-600 shadow" style="border-radius: 25px;" id="uni-web" target="_blank">Know More</a>
                     </div>
                 </div>
             </div>
@@ -448,7 +676,7 @@
     </div>
 
     <!-- ==================== TAB 4: ORGANIZER ==================== -->
-    <div id="tab-organizer" class="main-tab-content" style="display: none;">
+    <div id="tab-organizer" class="main-tab-content">
         <div class="container-fluid header-organizer py-5">
             <div class="container py-5">
                 <div class="row justify-content-center text-center">
@@ -495,7 +723,7 @@
                                             <li>2. Prof. Yusuf Pradesar</li>
                                             <li>3. Mrs. Amaliya Rasyida</li>
                                         </ul>
-                                        <label class="fw-700 text-main mt-2 color-main">Student Organizers</label>
+                                        <label class="fw-700 color-main mt-2">Student Organizers</label>
                                         <ul class="list-unstyled small text-light mb-0">
                                             <li>1. Reynard Hanif</li>
                                             <li>2. Azi Fahrudin Ahsani</li>
@@ -621,15 +849,17 @@
                     <p class="mb-2"><a onclick="switchTab('program')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Program</a></p>
                     <p class="mb-2"><a onclick="switchTab('participant')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Participant Universities</a></p>
                     <p class="mb-2"><a onclick="switchTab('organizer')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Organizer</a></p>
-                    <div class="dropdown mb-2">
-                        <a class="dropdown-toggle text-white-50 text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Last Event
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022</a></li>
-                            <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021</a></li>
-                        </ul>
-                    </div>
+                    <p class="mb-2">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle text-white-50 text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Last Event
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022</a></li>
+                                <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021</a></li>
+                            </ul>
+                        </div>
+                    </p>
                 </div>
                 <div class="col-lg-2">
                     <h5 class="font-expletus mb-4">Social Media</h5>
@@ -643,7 +873,7 @@
                     <div class="position-relative">
                         <form onsubmit="handleSubscribe(event)">
                             <input type="email" id="subEmail" class="form-control py-3 border-0 bg-dark text-white ps-4" style="border-radius:50px" placeholder="Type your email" required>
-                            <button type="submit" class="btn btn-primary position-absolute px-4" style="right:5px; top:5px; bottom: 5px; z-index:10; border-radius:30px; background-color: var(--main-color); border:none;">
+                            <button type="submit" class="btn btn-primary position-absolute px-4" style="right:5px; top:5px; bottom: 5px; z-index:10; border-radius:30px;">
                                 Send
                             </button>
                         </form>
@@ -661,12 +891,156 @@
         </div>
     </footer>
 
-    <!-- External JS Scripts -->
+    <!-- JS Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    
-    <!-- Custom Logic Script -->
-    <script src="assets/js/main.js"></script>
+    <script>
+        new WOW().init();
+
+        // Loader hide
+        $(window).on('load', function() {
+            $('#pageLoader').fadeOut(500);
+        });
+        setTimeout(function() {
+            $('#pageLoader').fadeOut(500);
+        }, 800);
+
+        // Custom notification toast
+        function showToast(title, message) {
+            $('#toastTitle').text(title);
+            $('#toastMessage').text(message);
+            $('#customToast').fadeIn().delay(3000).fadeOut();
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const email = $('#subEmail').val();
+            if(email) {
+                showToast("Subscribed Successfully!", "Thank you for subscribing. Latest updates will be sent to " + email);
+                $('#subEmail').val('');
+            }
+        }
+
+        // Seamless Modern Tab Navigation with Fade & Scroll Transition
+        function switchTab(tabName) {
+            $('.main-tab-content').removeClass('active-tab').hide();
+            
+            const target = $('#tab-' + tabName);
+            target.show();
+            setTimeout(() => {
+                target.addClass('active-tab');
+            }, 50);
+
+            $('.navbar-nav .nav-link').removeClass('nav-active');
+            $('#nav-' + tabName).addClass('nav-active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Animated Numbers
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            if(!obj) return;
+            let range = end - start;
+            let current = start;
+            let increment = end > start ? 1 : -1;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            let timer = setInterval(function () {
+                current += increment;
+                obj.innerHTML = current;
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        animateValue("count1", 1, 4, 1000);
+        animateValue("count2", 1, 4, 1000);
+        animateValue("count3", 1, 15, 1500);
+        animateValue("count4", 1, 20, 2500);
+        animateValue("prog-count1", 1, 2, 1000);
+        animateValue("prog-count2", 1, 4, 1000);
+        animateValue("prog-count3", 1, 15, 1500);
+
+        // Participating Universities Data Slider
+        const images = [
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-1.jpg", 
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-2.jpg", 
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-3.jpg", 
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-4.jpg"
+        ];
+        const logos = [
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-its.png", 
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-ntusc.png", 
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-kyutech.png", 
+            "https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-cwnu.png"
+        ];
+        const headerBgs = [
+            "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80')",
+            "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80')",
+            "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1492538366914-7bc2a7b6580d?auto=format&fit=crop&w=1920&q=80')",
+            "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920&q=80')"
+        ];
+        const titleValues = [
+            'Department of <span class="color-main">Materials and Metallurgical</span> Engineering',
+            'Department of <span class="color-main">Materials Science</span> and Engineering',
+            'Department of <span class="color-main">Materials Science</span> and Engineering',
+            'School of <span class="color-main">Materials Science</span> and Engineering',
+        ];
+        const subTitleValues = [
+            "Sepuluh Nopember Institute of Technology",
+            "National Taiwan University of Science and Technology",
+            "Kyushu Institute of Technology",
+            "Changwon National University",
+        ];
+        const subTitle2Values = ["Indonesia", "Taiwan", "Japan", "South Korea"];
+        const descriptionValues = [
+            "Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others",
+            "The Department of Materials Science and Engineering, established in 1975, is a highly respected institution within the Taiwanese materials science community. By adopting a unique interdisciplinary approach, we provide the scholarly training needed to address the whole range of materials, from complex materials in polymer engineering, to electronic, optoelectronic, ceramic, and metallic materials, to advanced materials in nanotechnology and biotechnology.",
+            "Materials Science and Engineering is one of the core fields associated with materials such as steels, alloys, semiconductors, ceramics, and composites. We investigate the relationship between material properties and their atomic and/or nanoscopic structures, and design new materials. We also conduct applied research of processing, bonding, recycling, and so forth, for industrial importance. Our goal is to contribute to solutions for global issues such as environmental problems, through application of materials.",
+            "New materials engineering is an interdisciplinary field that explores the correlation between the structure and properties of materials and applies it to various fields of science and engineering. The structure and properties of materials handled in new materials engineering start from the atomic or molecular level, and the development of new materials is an essential basic condition for the implementation of cutting-edge science and technology."
+        ];
+        const webParticipantValues = [
+            'https://www.its.ac.id/tmaterial/id/beranda/',
+            'https://mse.ntust.edu.tw/index.php',
+            'http://w3.matsc.kyutech.ac.jp/',
+            'https://www.changwon.ac.kr/material/main.do',
+        ];
+
+        let currentIndex = 0;
+
+        function updateUniversityContent() {
+            $('#home-uni-image').css('opacity', 0);
+            setTimeout(() => {
+                $('#home-uni-image').attr('src', images[currentIndex]);
+                $('#home-uni-image').css('opacity', 1);
+            }, 250);
+            $('#home-uni-title').html(titleValues[currentIndex]);
+            $('#home-uni-subtitle').text(subTitleValues[currentIndex]);
+            $('#home-uni-subtitle2').text(subTitle2Values[currentIndex]);
+            $('#home-uni-web').attr('href', webParticipantValues[currentIndex]);
+
+            $('#uni-header-bg').css('background-image', headerBgs[currentIndex]);
+            $('#uni-logo').attr('src', logos[currentIndex]);
+            $('#uni-title').html(titleValues[currentIndex]);
+            $('#uni-subtitle').text(subTitleValues[currentIndex]);
+            $('#uni-subtitle2').text(subTitle2Values[currentIndex]);
+            $('#uni-description').text(descriptionValues[currentIndex]);
+            $('#uni-web').attr('href', webParticipantValues[currentIndex]);
+        }
+
+        $('#home-uni-left, #uni-left').on('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateUniversityContent();
+        });
+
+        $('#home-uni-right, #uni-right').on('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateUniversityContent();
+        });
+
+        updateUniversityContent();
+    </script>
 </body>
 </html>
