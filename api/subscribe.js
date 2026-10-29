@@ -1,17 +1,35 @@
 export default async function handler(req, res) {
+  // Hanya izinkan HTTP POST
   if (req.method !== 'POST') {
-    return res.status(405).json({ status: 'error', message: 'Method Not Allowed' });
+    return res.status(405).json({
+      status: 'error',
+      message: 'Method not allowed. Use POST.'
+    });
   }
 
-  const { email } = req.body || {};
+  try {
+    const { email } = req.body || {};
 
-  if (!email || !email.includes('@')) {
-    return res.status(400).json({ status: 'error', message: 'Please provide a valid email address.' });
+    if (!email || !email.includes('@')) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Harap masukkan alamat email yang valid.'
+      });
+    }
+
+    // Tempatkan webhook / integrasi Google Sheets / Database di sini jika dibutuhkan
+    console.log(`[ISWMSE 2026] New subscriber received: ${email}`);
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Terima kasih telah berlangganan informasi ISWMSE 2026!',
+      email
+    });
+  } catch (error) {
+    console.error('Subscription error:', error);
+    return res.status(500).json({
+      status: 'error',
+      message: 'Terjadi kendala pada server. Silakan coba beberapa saat lagi.'
+    });
   }
-
-  // Catatan: Di sini Anda bisa menambahkan fetch() ke Google Apps Script / Google Sheets seperti di portal KPRI jika ingin menyimpan daftar email ke Spreadsheet.
-  return res.status(200).json({
-    status: 'success',
-    message: 'Thank you for subscribing to ISWMSE 2026 updates!'
-  });
 }
