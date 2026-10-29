@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -9,58 +9,45 @@
     <meta property="og:image:height" content="200">
     <meta property="og:title" content="ISWMSE 2026" />
     <meta property="og:description" content="The purpose of this workshop is offering an opportunity of sharing scientific and technological knowledges, education of students, and international collaboration between participating professors and students.">
-    <link rel="shortcut icon" href="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo.png" type="image/x-icon">
-    <title>ISWMSE 2026 — International Student Workshop on Materials Science and Engineering</title>
+    
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>ISWMSE 2026 | International Student Workshop on Materials Science and Engineering</title>
 
-    <!-- External CSS & Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Source Support -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/modules/wowjs/animate.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/iswmse-modern.css">
 </head>
+
 <body>
-
-    <!-- Loader -->
-    <div class="loader-bg" id="pageLoader">
+    <div class="loader-bg position-fixed top-50 start-50 translate-middle" style="z-index: 9999;">
         <div class="loader-p"></div>
-    </div>
-
-    <!-- Notification Custom Box -->
-    <div id="customToast">
-        <div class="d-flex align-items-center">
-            <i class="fa-solid fa-circle-check text-success me-3 fs-4"></i>
-            <div>
-                <h6 class="mb-0 fw-bold" id="toastTitle">Notification</h6>
-                <p class="mb-0 text-muted small" id="toastMessage">Action completed successfully.</p>
-            </div>
-        </div>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand" onclick="switchTab('home')" style="cursor: pointer;">
-                <span class="text-white fw-700 font-expletus fs-4">ISWMSE <span class="color-main">2026</span></span>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="text-white fw-bold font-expletus fs-4">ISWMSE <span class="color-main">2026</span></span>
             </a>
             <button class="navbar-toggler shadow-none text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars my-1 text-white fs-4"></i>
+                <i class="fa-solid fa-bars fs-4"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto align-items-lg-center">
-                    <a class="nav-link me-3 nav-active" id="nav-home" onclick="switchTab('home')">Home</a>
-                    <a class="nav-link me-3" id="nav-program" onclick="switchTab('program')">Program</a>
-                    <a class="nav-link me-3" id="nav-participant" onclick="switchTab('participant')">Participant Universities</a>
-                    <a class="nav-link me-3" id="nav-organizer" onclick="switchTab('organizer')">Organizer</a>
-                    <li class="nav-item dropdown ms-lg-2">
+                    <a class="nav-link nav-active" href="index.html">Home</a>
+                    <a class="nav-link" href="program.html">Program</a>
+                    <a class="nav-link" href="participant_universities.html">Participant Universities</a>
+                    <a class="nav-link" href="organizer.html">Organizer</a>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Last Event
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end p-2">
-                            <li><a class="dropdown-item rounded-2 fw-500 py-2" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022 <i class="fa-solid fa-external-link-alt ms-2 small text-muted"></i></a></li>
-                            <li><a class="dropdown-item rounded-2 fw-500 py-2 mt-1" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021 <i class="fa-solid fa-external-link-alt ms-2 small text-muted"></i></a></li>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022</a></li>
+                            <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021</a></li>
                         </ul>
                     </li>
                 </div>
@@ -68,99 +55,125 @@
         </div>
     </nav>
 
-    <!-- ==================== TAB 1: HOME ==================== -->
-    <div id="tab-home" class="main-tab-content active-tab">
-        <div class="container-fluid header-home py-5">
+    <main>
+        <style>
+            .header-home {
+                background-image: url('assets/img/header-home.jpg');
+            }
+            .container-about {
+                background: linear-gradient(180deg, #070709 15%, #25286B 100%);
+            }
+        </style>
+
+        <!-- Hero Section -->
+        <div class="container-fluid img-style header header-home">
             <div class="container">
-                <div class="row" style="padding-top:70px">
-                    <div class="col-lg-8 offset-lg-4">
-                        <h1 style="text-align: right" class="font-expletus fw-600 display-5 animate__animated animate__fadeInDown">International Student Workshop on <span class="color-main font-expletus">Materials Science and Engineering</span> 2026</h1>
+                <div class="row">
+                    <div class="col-lg-9 offset-lg-3 text-lg-end text-center">
+                        <h1 class="font-expletus fw-bold display-5 reveal-up">
+                            International Student Workshop on <span class="color-main font-expletus">Materials Science and Engineering</span> 2026
+                        </h1>
                     </div>
                 </div>
-                <div class="row text-center mt-5">
-                    <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4 text-white"><span id="count1">1</span></h1>
-                        <label class="fw-700">Top International Universities</label> <br>
-                        <span class="text-muted small">for Material Science and Engineering</span>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4 text-white"><span id="count2">1</span></h1>
-                        <label class="fw-700">Outstanding Keynotes Speakers</label> <br>
-                        <span class="text-muted small">on Material Science and Engineering</span>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4 text-white"><span id="count3">1</span>+</h1>
-                        <label class="fw-700">Topic Discussion</label> <br>
-                        <span class="text-muted small">about Material Science and Engineering</span>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-none d-md-block">
-                        <h1 class="fw-700 display-4 text-white"><span id="count4">1</span>+</h1>
-                        <label class="fw-700">Professor and Student</label><br>
-                        <span class="text-muted small">from 4 Top International Universities</span>
-                    </div>
-                </div>
-                <div class="row mt-5 align-items-center">
-                    <div class="col-lg-6">
-                        <p style="text-align:justify; font-size: 1.05rem;" class="text-light">The purpose of this workshop is offering an opportunity of sharing scientific and technological knowledges, education of students, and international collaboration between participating professors and students.</p>
-                        <p class="mb-4 mt-4 fw-600 text-warning"><i># MATERIALSENGINEERING</i></p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="#getToKnowAbout" class="btn bg-black text-white px-4 py-2 fw-600" style="border: 1px solid #707070; border-radius: 30px;">Learn More</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-600 shadow" style="border-radius: 30px;" target="_blank">Submit Abstract</a>
+
+                <!-- Counter Stats -->
+                <div class="row text-center mt-5 g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-box reveal-up">
+                            <h1 class="fw-bold color-main display-5 mb-1"><span id="count1">1</span></h1>
+                            <label class="fw-bold d-block text-white">Top International Universities</label>
+                            <span class="small text-white-50">for Material Science and Engineering</span>
                         </div>
                     </div>
-                    <div class="col-lg-6 text-center d-none d-lg-block">
-                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/group-partner.png" style="height:200px; filter: drop-shadow(0 10px 20px rgba(104,108,228,0.4))" alt="group-partner" onerror="this.src='https://placehold.co/400x200/121212/686CE4?text=ISWMSE+2026'">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-box reveal-up">
+                            <h1 class="fw-bold color-main display-5 mb-1"><span id="count2">1</span></h1>
+                            <label class="fw-bold d-block text-white">Outstanding Keynote Speakers</label>
+                            <span class="small text-white-50">on Material Science and Engineering</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-box reveal-up">
+                            <h1 class="fw-bold color-main display-5 mb-1"><span id="count3">1</span>+</h1>
+                            <label class="fw-bold d-block text-white">Topic Discussions</label>
+                            <span class="small text-white-50">about Material Science and Engineering</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-box reveal-up">
+                            <h1 class="fw-bold color-main display-5 mb-1"><span id="count4">1</span>+</h1>
+                            <label class="fw-bold d-block text-white">Professors and Students</label>
+                            <span class="small text-white-50">from 4 Top International Universities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 align-items-center g-4">
+                    <div class="col-lg-6 reveal-up">
+                        <p class="fs-6 text-light" style="text-align:justify;">
+                            The purpose of this workshop is offering an opportunity of sharing scientific and technological knowledges, education of students, and international collaboration between participating professors and students.
+                        </p>
+                        <p class="mb-4 mt-4 fw-bold color-main" style="letter-spacing: 2px;"><i># MATERIALSENGINEERING</i></p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#getToKnowAbout" class="btn btn-outline-glass px-4 py-2 fw-semibold">Learn More</a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-semibold text-white" target="_blank">Submit Abstract</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center reveal-up">
+                        <img src="assets/img/group-partner.png" class="img-proportional-contain" style="max-height: 210px; width: auto;" alt="Participating Universities Partner Logos">
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Get To Know Section -->
         <section class="container-fluid container-about text-white" id="getToKnowAbout">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="text-center fw-700 font-expletus wow fadeInUp">Get To Know about <span class="color-main font-expletus">ISWMSE 2026</span></h1>
+                        <h1 class="text-center fw-bold font-expletus reveal-up">Get To Know about <span class="color-main font-expletus">ISWMSE 2026</span></h1>
                     </div>
                 </div>
-                <div class="row my-4 my-lg-5">
-                    <div class="col-lg-12">
-                        <div class="ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden border border-secondary">
-                            <iframe src="https://www.youtube.com/embed/QBwiDEm23Fk?si=eHBF05f5Bcn7JNB6" title="ISWMSE Video" allowfullscreen></iframe>
+                <div class="row my-4 my-lg-5 justify-content-center">
+                    <div class="col-lg-10 reveal-up">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border border-secondary border-opacity-25">
+                            <iframe src="https://www.youtube.com/embed/QBwiDEm23Fk?si=eHBF05f5Bcn7JNB6" title="DTMM ITS Profile Video" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-lg-1 col-md-2 mb-4 mt-2 text-center">
-                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-dtmm.png" class="d-none d-md-block wow fadeInUp w-100" alt="logo-dtmm" onerror="this.src='https://placehold.co/100x100/3B3E98/fff?text=DTMM'">
+                <div class="row align-items-center mt-4 g-4">
+                    <div class="col-lg-1 col-md-2 text-center">
+                        <img src="assets/img/logo-dtmm.png" class="img-proportional-contain reveal-up" style="max-height: 85px; width: auto;" alt="Logo DTMM ITS">
                     </div>
-                    <div class="col-lg-4 col-md-10 mb-4">
-                        <h3 class="font-expletus wow fadeInUp">Material and Metallurgical Engineering - Indonesia</h3>
+                    <div class="col-lg-4 col-md-10">
+                        <h3 class="font-expletus fw-bold reveal-up mb-0">Material and Metallurgical Engineering - Indonesia</h3>
                     </div>
                     <div class="col-lg-7">
-                        <p class="wow fadeInUp" style="text-align:justify;color:#DEDEDE">Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others</p>
-                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="wow fadeInUp hover-slider-left d-inline-flex align-items-center mt-2 text-decoration-none" style="color:#DEDEDE">
+                        <p class="reveal-up" style="text-align:justify; color:#E2E8F0;">
+                            Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others.
+                        </p>
+                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="reveal-up d-inline-flex align-items-center text-white text-decoration-none fw-semibold mt-2">
                             Read More
-                            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/next-link.png" class="ms-3" style="width:40px" onerror="this.style.display='none'">
+                            <img src="assets/img/next-link.png" class="ms-3 img-proportional-contain" style="width:45px; height:auto;" alt="Next">
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="bg-black py-2 text-center">
-            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/waves-1.jpg" class="w-100 opacity-75" style="border-radius:0; max-height: 120px; object-fit: cover;" alt="waves" onerror="this.style.display='none'">
-        </div>
+        <img src="assets/img/waves-1.jpg" class="wave-divider" alt="divider">
 
+        <!-- Objective, Topic & Timeline -->
         <section class="container-fluid bg-black mt-0 mb-0">
             <div class="container">
-                <div class="row justify-content-center mb-4">
-                    <div class="col-lg-4 col-md-4 text-center">
-                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/row-group-partner.png" class="w-75" alt="group-partner" onerror="this.style.display='none'">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-md-7 text-center reveal-up">
+                        <img src="assets/img/row-group-partner.png" class="img-proportional-contain w-100" style="max-height: 90px;" alt="Group Partner">
                     </div>
                 </div>
                 <div class="row text-white text-center my-5">
                     <div class="col-lg-12">
-                        <h1 class="fw-700 font-expletus wow fadeInUp">
+                        <h1 class="fw-bold font-expletus reveal-up">
                             International Student Workshop on Materials <br>
                             Science and Engineering <br>
                             <span class="color-main font-expletus">ISWMSE 2026</span>
@@ -169,88 +182,90 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-8">
-                        <h4 class="fw-700 text-white mb-4 font-expletus wow fadeInUp">Objective</h4>
-                        <div class="card p-3 custom-dark-card shadow-sm">
-                            <div class="card-body fw-600 text-dark bg-white p-4 rounded-4 shadow-inner" style="text-align:justify;">
+                        <h4 class="fw-bold text-white mb-4 font-expletus reveal-up">Objective</h4>
+                        <div class="card elevated-card p-3 reveal-up">
+                            <div class="card-body fw-medium" style="text-align:justify;">
                                 <p>We are organizing this collaborative workshop in materials science and engineering to facilitate the exchange of scientific and technological knowledge, promote student education, and foster international partnerships among professors and students.</p>
                                 <p>Materials science and engineering have opened up new avenues for fundamental research, playing a crucial role in various technologies. Innovations in materials hold the potential to drive advancements in both science and technology. Each university and institution is actively researching materials science and engineering, specializing in their respective vital areas. Sharing these insights will deepen our understanding of materials, and this workshop provides a unique opportunity to initiate new joint research endeavors.</p>
-                                <p>While numerous international conferences are dedicated to materials science and engineering, it can be challenging for some students to participate in these events, and educational workshops for students are often limited. In our workshop, many students can present their research findings, and some may even become involved in the workshop's organization. </p>
-                                <p>Establishing international collaborations among professors and facilitating interactions among students is essential. Partnerships at the departmental level are critical for global engagement, and this joint workshop will enhance connections between departments and among individual professors and students. </p>
-                                <p class="mb-0">We anticipate lively discussions and interactions among participating students and professors. In the future, our goal is to sustain this platform for international collaboration and expand our network of collaborative partners to include other universities and institutions</p>
+                                <p>While numerous international conferences are dedicated to materials science and engineering, it can be challenging for some students to participate in these events, and educational workshops for students are often limited. In our workshop, many students can present their research findings, and some may even become involved in the workshop's organization.</p>
+                                <p>Establishing international collaborations among professors and facilitating interactions among students is essential. Partnerships at the departmental level are critical for global engagement, and this joint workshop will enhance connections between departments and among individual professors and students.</p>
+                                <p class="mb-0">We anticipate lively discussions and interactions among participating students and professors. In the future, our goal is to sustain this platform for international collaboration and expand our network of collaborative partners to include other universities and institutions.</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4">
-                        <h4 class="fw-700 text-white mb-4 font-expletus wow fadeInUp">Topic</h4>
-                        <div class="card p-3 custom-dark-card mb-4 shadow-sm">
+                        <h4 class="fw-bold text-white mb-4 font-expletus reveal-up">Topic</h4>
+                        <div class="card elevated-card p-2 mb-4 reveal-up">
                             <div class="card-body">
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Processing</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Function</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Property</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Structure</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Characterization</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Physics</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Application</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Chemistry</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Material Design</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Energy Material</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Electronic Material</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Bio Material</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Nanomaterial</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Structural Material</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Advanced Material and Novel Material</span>
-                                <span class="bg-blue text-white px-3 py-2 my-1 topic-value fw-500">Other Topics on Materials Science and Engineering</span>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Processing</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Function</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Property</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Structure</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Characterization</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Physics</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Application</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Chemistry</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Material Design</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Energy Material</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Electronic Material</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Bio Material</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Nanomaterial</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Structural Material</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Advanced Material and Novel Material</label>
+                                <label class="bg-blue text-white topic-value fw-medium">Other Topics on Materials Science and Engineering</label>
                             </div>
                         </div>
 
-                        <h4 class="fw-700 text-white mb-4 font-expletus wow fadeInUp">Timeline</h4>
-                        <div class="card p-3 custom-dark-card shadow-sm">
-                            <div class="card-body fw-700">
-                                <table class="table table-dark table-borderless table-sm mb-0">
-                                    <tr>
-                                        <td class="color-blue w-25">01-18 Nov</td>
-                                        <td>&nbsp; Registration Applicants</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="color-blue">25 Nov</td>
-                                        <td>&nbsp; Announcement of Selection</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="color-blue">06 Dec</td>
-                                        <td>&nbsp; Announcement Speakers</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="color-blue">22-23 Dec</td>
-                                        <td>&nbsp; D-Day ISWMSE 2026</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="color-blue">Soon</td>
-                                        <td>&nbsp; Award Winners Announced</td>
-                                    </tr>
+                        <h4 class="fw-bold text-white mb-4 font-expletus reveal-up">Timeline</h4>
+                        <div class="card elevated-card p-2 reveal-up">
+                            <div class="card-body fw-bold">
+                                <table class="table table-borderless mb-0 align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-primary fw-bold text-nowrap">01-18 Nov</td>
+                                            <td class="text-dark">Registration Applicants</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary fw-bold text-nowrap">25 Nov</td>
+                                            <td class="text-dark">Announcement of Selection</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary fw-bold text-nowrap">06 Dec</td>
+                                            <td class="text-dark">Announcement Speakers</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary fw-bold text-nowrap">22-23 Dec</td>
+                                            <td class="text-dark">D-Day ISWMSE 2026</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary fw-bold text-nowrap">Soon</td>
+                                            <td class="text-dark">Award Winners Announced</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-lg-8 offset-lg-2 text-center">
-                        <h2 class="text-white fw-600 wow fadeInUp">The Best Student Workshop about Material</h2>
-                        <h2 class="text-white fw-600 wow fadeInUp">Science and Engineering</h2>
-                        <a onclick="switchTab('participant')" class="btn btn-primary px-5 py-3 mt-4 fw-600 shadow" style="background-color: var(--orange-color); border-radius: 27px; cursor: pointer;">Explore Participant Universities</a>
+
+                <div class="row mt-5 pt-4">
+                    <div class="col-lg-8 offset-lg-2 text-center reveal-up">
+                        <h2 class="text-white fw-bold font-expletus">The Best Student Workshop about Material Science and Engineering</h2>
+                        <a href="#takeALook" class="btn btn-primary px-5 py-3 mt-4 fw-semibold text-white">Explore Universities</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="bg-black py-2 text-center">
-            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/waves-2.jpg" class="w-100 opacity-75" style="border-radius:0; max-height: 120px; object-fit: cover;" alt="waves" onerror="this.style.display='none'">
-        </div>
+        <img src="assets/img/waves-2.jpg" class="wave-divider" alt="divider">
 
-        <section class="container-fluid py-5 bg-white text-black" id="takeALook">
-            <div class="container py-4">
+        <!-- University Carousel Section -->
+        <section class="container-fluid mt-0 bg-white text-dark" id="takeALook">
+            <div class="container">
                 <div class="row text-center mb-5">
                     <div class="col-lg-12">
-                        <h1 class="fw-700 font-expletus wow fadeInUp text-black">
+                        <h1 class="fw-bold font-expletus reveal-up text-black">
                             Take a Look at <span class="color-main font-expletus">International</span> <br>
                             <span class="color-main font-expletus">Participating Universities</span> and Institutions
                         </h1>
@@ -258,28 +273,32 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                        <div class="card border-0 shadow-lg rounded-4 overflow-hidden reveal-up">
                             <div class="row g-0">
-                                <div class="col-lg-6 bg-black text-white py-5 px-4 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <h2 class="fw-700 font-expletus wow fadeInUp" id="home-uni-title">Department of <span class="color-main">Materials and Metallurgical</span> Engineering</h2>
-                                        <div class="mt-4">
-                                            <label class="wow fadeInUp fw-bold fs-5 text-warning" id="home-uni-subtitle">Sepuluh Nopember Institute of Technology</label> <br>
-                                            <span class="wow fadeInUp fw-700 text-muted" id="home-uni-subtitle2">Indonesia</span>
-                                        </div>
+                                <div class="col-lg-6 bg-black text-white p-4 p-lg-5 d-flex flex-column justify-content-between">
+                                    <div id="textContainer" class="fade-transition">
+                                        <span class="badge rounded-pill bg-primary px-3 py-2 mb-3" id="subTitle2">Indonesia</span>
+                                        <h2 class="fw-bold font-expletus" id="title">Department of <span class="color-main">Materials and Metallurgical</span> Engineering</h2>
+                                        <p class="mt-3 fs-5 text-white-50 mb-0" id="subTitle">Sepuluh Nopember Institute of Technology</p>
                                     </div>
-                                    <div class="mt-5">
-                                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 fw-500 shadow" style="border-radius: 25px;" id="home-uni-web" target="_blank">Know More</a>
+                                    <div class="mt-5 pt-4">
+                                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 fw-semibold text-white" id="webParticipant" target="_blank">Know More</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 position-relative bg-dark">
-                                    <img id="home-uni-image" src="https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-1.jpg" class="w-100 h-100 object-fit-cover" style="min-height: 400px; transition: opacity 0.5s ease-in-out;" alt="Department" onerror="this.src='https://placehold.co/600x450/222/fff?text=University+View'">
+                                    <img id="image" src="assets/img/departemen-1.jpg" class="img-proportional-cover fade-transition" alt="University Campus">
                                     
-                                    <div id="home-uni-left" class="position-absolute d-flex align-items-center justify-content-center shadow" style="top:50%; left:15px; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.2s;">
-                                        <i class="fa-solid fa-chevron-left text-white"></i>
-                                    </div>
-                                    <div id="home-uni-right" class="position-absolute d-flex align-items-center justify-content-center shadow" style="top:50%; right:15px; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.2s;">
-                                        <i class="fa-solid fa-chevron-right text-white"></i>
+                                    <div class="position-absolute top-50 start-0 end-0 translate-middle-y d-flex justify-content-between px-3">
+                                        <svg id="leftButton" class="slider-nav-btn" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
+                                            <circle cx="25.0001" cy="25.5259" r="25" fill="#101018" fill-opacity="0.75"/>
+                                            <circle cx="25.0001" cy="25.5259" r="24.5" stroke="#FF6118" stroke-opacity="0.9"/>
+                                            <path d="M28.7165 15.7915C30.0659 15.0502 31.7118 16.0477 31.6791 17.5869L31.3398 33.5495C31.3071 35.0887 29.6204 36.0153 28.3037 35.2174L14.6494 26.9423C13.3327 26.1444 13.3736 24.2203 14.723 23.479L28.7165 15.7915Z" fill="#FF6118"/>
+                                        </svg>
+                                        <svg id="rightButton" class="slider-nav-btn" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                                            <circle cx="25.2415" cy="25.5259" r="25" transform="rotate(-180 25.2415 25.5259)" fill="#101018" fill-opacity="0.75"/>
+                                            <circle cx="25.2415" cy="25.5259" r="24.5" transform="rotate(-180 25.2415 25.5259)" stroke="#FF6118" stroke-opacity="0.9"/>
+                                            <path d="M21.525 35.2602C20.1756 36.0015 18.5298 35.0041 18.5625 33.4648L18.9017 17.5023C18.9344 15.963 20.6212 15.0364 21.9378 15.8344L35.5922 24.1094C36.9088 24.9074 36.868 26.8315 35.5186 27.5728L21.525 35.2602Z" fill="#FF6118"/>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -288,385 +307,129 @@
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- ==================== TAB 2: PROGRAM ==================== -->
-    <div id="tab-program" class="main-tab-content">
-        <div class="container-fluid header-program py-5">
-            <div class="container">
-                <div class="row" style="padding-top:70px">
-                    <div class="col-lg-8 offset-lg-4">
-                        <h1 style="text-align: right" class="font-expletus fw-600 display-5">
-                            International Student Workshop on Materials
-                            Science and Engineering <br>
-                            <span class="color-main font-expletus fw-600">ISWMSE 2026</span>
-                        </h1>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-lg-12">
-                        <h1 class="fw-600 display-4">
-                            <span class="color-main" id="prog-count1">2</span> Days
-                        </h1>
-                        <h1 class="fw-600 display-4">
-                            <span class="color-main" id="prog-count2">4</span>
-                            Keynotes Speakers
-                        </h1>
-                        <h1 class="fw-600 display-4">
-                            <span class="color-main" id="prog-count3">15</span><span class="color-main">+</span>
-                            Topics Discussion
-                        </h1>
-                        <p class="text-muted mt-3">[ 12 - 13, December. Indonesia, Japan, Taiwan and Korea local time]</p>
-                        <p class="mb-4 mt-4 fw-600 text-warning"><i># MATERIALSENGINEERING</i></p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a onclick="switchTab('home')" class="btn bg-black text-white px-4 py-2 fw-600" style="border: 1px solid #707070; border-radius: 30px; cursor: pointer;">Learn More</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" class="btn btn-primary px-4 py-2 fw-600 shadow" style="border-radius: 30px;" target="_blank">Submit Abstract</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <section class="container-fluid bg-black text-white position-relative overflow-hidden py-5">
-            <div class="container position-relative py-4">
-                <div class="row justify-content-center text-center mb-2">
-                    <div class="col-lg-12">
-                        <h1 class="fw-700 color-main font-expletus display-1 opacity-25">Keynotes Speaker</h1>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: -4rem; z-index: 2; position: relative;">
-                    <div class="col-lg-6 text-center">
-                        <h1 class="fw-700 font-expletus wow fadeInUp">Who’s <span class="color-main font-expletus">Speaking ?</span></h1>
-                        <p class="mt-3 fw-600 text-muted wow fadeInUp">Here <span class="color-main">the incredible keynotes speaker </span>from 4 top international universities for Material and Science Engineering</p>
-                    </div>
-                </div>
-                <div class="row mt-5 justify-content-center g-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-dark-card p-2 text-center h-100 shadow">
-                            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/keynotes-2.png" class="w-100 rounded-3 mb-2" alt="Keynote 2" onerror="this.src='https://placehold.co/300x400/222/fff?text=Keynote+Speaker+2'">
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-1 text-white">Distinguished Professor</h6>
-                                <p class="small text-muted mb-0">Materials Innovation Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-dark-card p-2 text-center h-100 shadow">
-                            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/keynotes-1.png" class="w-100 rounded-3 mb-2" alt="Keynote 1" onerror="this.src='https://placehold.co/300x400/222/fff?text=Keynote+Speaker+1'">
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-1 text-white">Keynote Speaker</h6>
-                                <p class="small text-muted mb-0">Advanced Materials Researcher</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-dark-card p-2 text-center h-100 shadow">
-                            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/keynotes-3.png" class="w-100 rounded-3 mb-2" alt="Keynote 3" onerror="this.src='https://placehold.co/300x400/222/fff?text=Keynote+Speaker+3'">
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-1 text-white">Guest Professor</h6>
-                                <p class="small text-muted mb-0">Nanomaterials Specialist</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="bg-black py-2 text-center">
-            <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/waves-2.jpg" class="w-100 opacity-75" style="border-radius:0; max-height: 120px; object-fit: cover;" alt="waves" onerror="this.style.display='none'">
-        </div>
-
-        <section class="container-fluid py-5 bg-white text-black">
-            <div class="container position-relative py-4">
-                <div class="row justify-content-center text-center mb-2">
-                    <div class="col-lg-12">
-                        <h1 class="fw-700 text-black font-expletus display-1 opacity-25">Schedule</h1>
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-4" style="margin-top: -4rem; z-index: 2; position: relative;">
-                    <div class="col-lg-7 text-center">
-                        <h1 class="fw-700 font-expletus wow fadeInUp">At What <span class="color-main font-expletus">Time ?</span></h1>
-                        <p class="mt-3 fw-600 text-muted wow fadeInUp">The workshop <span class="color-main">will be held in 2 sessions </span>—the Professor and the Student. More information about the session and time schedule will be 
-                            <span class="color-main">sent to the email registrant</span> or 
-                            <a href="https://drive.google.com/file/d/1qmaIF5FitZ1efs3Y1u_pwL6GLCo7Nt-y/view?usp=drive_link" target="_blank" class="color-main fw-bold">click here</a>.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- ==================== TAB 3: PARTICIPANT UNIVERSITIES ==================== -->
-    <div id="tab-participant" class="main-tab-content">
-        <div class="container-fluid header-participant py-5" id="uni-header-bg">
-            <div class="container py-5" style="padding-top:70px">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-12">
-                        <h1 class="fw-700 font-expletus display-1 opacity-25">International Universities</h1>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: -3.5rem;">
-                    <div class="col-lg-6 text-center" style="z-index: 1;">
-                        <h1 class="fw-700 font-expletus">Universities and <span class="color-main font-expletus">Institutions</span></h1>
-                        <p class="mt-3 fw-600 d-none d-lg-block text-muted">
-                            There will be participating with many
-                            <span class="color-main">professors and students</span>
-                            from 4 top international universities for Material and Science Engineering.
-                        </p>
-                    </div>
-                </div>
-                <div class="row mt-4 align-items-center">
-                    <div class="col-lg-3 col-md-6 text-center text-lg-start mb-4 mb-lg-0">
-                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-its.png" height="110" id="uni-logo" alt="logo" onerror="this.src='https://placehold.co/120x120/fff/333?text=Logo'">
-                    </div>
-                </div>
-                <div class="row mt-3 align-items-center">
-                    <div class="col-lg-6 text-center text-lg-start">
-                        <h2 class="fw-700 font-expletus" id="uni-title">
-                            Department of
-                            <span class="color-main font-expletus">Materials and Metallurgical</span>
-                            Engineering
-                        </h2>
-                        <h5 class="mt-2 text-warning" id="uni-subtitle">Sepuluh Nopember Institute of Technology</h5>
-                        <span class="fw-700 text-muted" id="uni-subtitle2">Indonesia</span>
-                        <div class="mt-4 d-flex justify-content-center justify-content-lg-start gap-4">
-                            <div id="uni-left" class="d-flex align-items-center justify-content-center shadow" style="width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid var(--orange-color); border-radius: 50%; cursor: pointer; transition: 0.2s;">
-                                <i class="fa-solid fa-chevron-left" style="color: var(--orange-color);"></i>
-                            </div>
-                            <div id="uni-right" class="d-flex align-items-center justify-content-center shadow" style="width: 50px; height: 50px; background: rgba(59,62,152,0.6); backdrop-filter: blur(5px); border: 1px solid var(--orange-color); border-radius: 50%; cursor: pointer; transition: 0.2s;">
-                                <i class="fa-solid fa-chevron-right" style="color: var(--orange-color);"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mt-4 mt-lg-0">
-                        <p class="text-justify d-none d-lg-block text-light" id="uni-description">Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others</p>
-                        <a href="https://www.its.ac.id/tmaterial/id/beranda/" class="btn btn-primary px-4 py-2 mt-3 fw-600 shadow" style="border-radius: 25px;" id="uni-web" target="_blank">Know More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== TAB 4: ORGANIZER ==================== -->
-    <div id="tab-organizer" class="main-tab-content">
-        <div class="container-fluid header-organizer py-5">
-            <div class="container py-5">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-12">
-                        <h1 class="fw-700 font-expletus display-1 color-main opacity-25">People Behind</h1>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: -4rem;">
-                    <div class="col-lg-8 text-center" style="z-index: 1;">
-                        <h1 class="fw-700 font-expletus"><span class="color-main font-expletus">Organizers</span></h1>
-                        <p class="mt-3 fw-600 text-muted">
-                            Discover
-                            <span class="color-main">the passionate and dedicated organizers</span>
-                            who are driving innovation and collaboration at the 
-                            <span class="color-main">International Student Workshop on Material Science Engineering 2026</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center mt-5">
-                    <div class="col-lg-6 col-md-10">
-                        <div class="card border-organizers p-3 shadow-lg" style="border-radius: 60px;">
-                            <div class="card-body text-center">
-                                <h5 class="fw-700 text-white mb-1">Yusuf Pradesar, <br class="d-block d-md-none"> S.T., M.T., M.Sc., Ph.D.</h5>
-                                <label class="fw-700 color-main">Chairperson</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ITS Organizer -->
-                <div class="row mt-4 justify-content-center">
-                    <div class="col-lg-8 col-md-11">
-                        <div class="card border-organizers p-3 shadow wow fadeInUp" style="border-radius: 29px;">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3 text-center mb-3 mb-md-0">
-                                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-its.png" alt="logo-its" class="img-fluid" style="max-height: 80px;" onerror="this.src='https://placehold.co/80x80/333/fff?text=ITS'">
-                                    </div>
-                                    <div class="col-md-9 fw-600">
-                                        <label class="fw-700 text-warning">Institut Teknologi Sepuluh Nopember (ITS) - Indonesia</label>
-                                        <ul class="list-unstyled mt-2 small text-light mb-0">
-                                            <li>1. Prof. Diah Susanti</li>
-                                            <li>2. Prof. Yusuf Pradesar</li>
-                                            <li>3. Mrs. Amaliya Rasyida</li>
-                                        </ul>
-                                        <label class="fw-700 color-main mt-2">Student Organizers</label>
-                                        <ul class="list-unstyled small text-light mb-0">
-                                            <li>1. Reynard Hanif</li>
-                                            <li>2. Azi Fahrudin Ahsani</li>
-                                            <li>3. Rafi Mubarak</li>
-                                            <li>4. Himawan Rashad</li>
-                                            <li>5. Raditya Khansa Wijaya</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CWNU Organizer -->
-                <div class="row mt-4 justify-content-center">
-                    <div class="col-lg-8 col-md-11">
-                        <div class="card border-organizers p-3 shadow wow fadeInUp" style="border-radius: 29px;">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3 text-center mb-3 mb-md-0">
-                                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-cwnu.png" alt="logo-cwnu" class="img-fluid" style="max-height: 80px;" onerror="this.src='https://placehold.co/80x80/333/fff?text=CWNU'">
-                                    </div>
-                                    <div class="col-md-9 fw-600">
-                                        <label class="fw-700 text-warning">Changwon National University (CWNU) - South Korea</label>
-                                        <ul class="list-unstyled mt-2 small text-light mb-0">
-                                            <li>1. Prof. Jun-Seob Lee</li>
-                                        </ul>
-                                        <label class="fw-700 color-main mt-2">Student Organizers</label>
-                                        <ul class="list-unstyled small text-light mb-0">
-                                            <li>1. Ms. Jae-Min Jung</li>
-                                            <li>2. Mr. Chol-Hyeok Yang</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NTUST Organizer -->
-                <div class="row mt-4 justify-content-center">
-                    <div class="col-lg-8 col-md-11">
-                        <div class="card border-organizers p-3 shadow wow fadeInUp" style="border-radius: 29px;">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3 text-center mb-3 mb-md-0">
-                                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-ntusc.png" alt="logo-ntusc" class="img-fluid" style="max-height: 80px;" onerror="this.src='https://placehold.co/80x80/333/fff?text=NTUST'">
-                                    </div>
-                                    <div class="col-md-9 fw-600">
-                                        <label class="fw-700 text-warning">National Taiwan University of Science and Technology (NTUST) - Taiwan</label>
-                                        <ul class="list-unstyled mt-2 small text-light mb-0">
-                                            <li>1. Prof. Yu-Sheng Hsiao</li>
-                                        </ul>
-                                        <label class="fw-700 color-main mt-2">Student Organizers</label>
-                                        <ul class="list-unstyled small text-light mb-0">
-                                            <li>1. Mr. Meng-Chun Chiu</li>
-                                            <li>2. Mr. Hsuan-Cheng Huang</li>
-                                            <li>3. Mr. Tao-Jyun Hsu</li>
-                                            <li>4. Mr. Tsung-Lin Li</li>
-                                            <li>5. Mr. Sheng-Ping Chang</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kyutech Organizer -->
-                <div class="row mt-4 justify-content-center">
-                    <div class="col-lg-8 col-md-11">
-                        <div class="card border-organizers p-3 shadow wow fadeInUp" style="border-radius: 29px;">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3 text-center mb-3 mb-md-0">
-                                        <img src="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-kyutech.png" alt="logo-kyutech" class="img-fluid" style="max-height: 80px;" onerror="this.src='https://placehold.co/80x80/333/fff?text=Kyutech'">
-                                    </div>
-                                    <div class="col-md-9 fw-600">
-                                        <label class="fw-700 text-warning">Kyushu Institute of Technology (Kyutech) - Japan</label>
-                                        <ul class="list-unstyled mt-2 small text-light mb-0">
-                                            <li>1. Prof. Tatsuya Tokunaga</li>
-                                            <li>2. Prof. Ken'ichi Yokoyama</li>
-                                            <li>3. Prof. Kaori Seino</li>
-                                        </ul>
-                                        <label class="fw-700 color-main mt-2">Student Organizers</label>
-                                        <ul class="list-unstyled small text-light mb-0">
-                                            <li>1. Mr. Kuga Ando</li>
-                                            <li>2. Mr. Kota Fujiwara</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="container-fluid bg-black text-white pt-5 border-top border-dark">
+    <footer class="container-fluid bg-black text-white pt-5 border-top border-secondary border-opacity-25">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 mb-3">
-                    <h5 class="color-main fw-700 font-expletus">ISWMSE <br> 2026</h5>
-                    <p class="small text-muted" style="line-height: 1.8;">
+                    <h4 class="color-main fw-bold font-expletus">ISWMSE 2026</h4>
+                    <p class="text-white-50 small lh-lg">
                         Department of Materials and Metallurgical Engineering<br>
                         Faculty of Industrial Technology and Systems Engineering<br>
                         Institut Teknologi Sepuluh Nopember<br>
-                        Building MT 2nd Floor <br>
-                        Kampus ITS Sukolilo, Surabaya 60111 <br>
-                        Phone: (031) 5997026, (031) 5943645 <br>
-                        Fax: (031) 5997026, (031) 5943645 <br>
-                        Email: tmaterial@its.ac.id <br>
-                        <span class="color-main fw-bold d-block mt-2">ISWMSE.ITS@gmail.com</span>
+                        Building MT 2nd Floor, Kampus ITS Sukolilo, Surabaya 60111<br>
+                        Phone / Fax: (031) 5997026, (031) 5943645<br>
+                        Email: tmaterial@its.ac.id | ISWMSE.ITS@gmail.com
                     </p>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-6 navigation-footer">
                     <h5 class="font-expletus mb-4">Navigation</h5>
-                    <p class="mb-2"><a onclick="switchTab('home')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Home</a></p>
-                    <p class="mb-2"><a onclick="switchTab('program')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Program</a></p>
-                    <p class="mb-2"><a onclick="switchTab('participant')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Participant Universities</a></p>
-                    <p class="mb-2"><a onclick="switchTab('organizer')" class="text-white-50 text-decoration-none" style="cursor: pointer;">Organizer</a></p>
-                    <p class="mb-2">
-                        <div class="dropdown">
-                            <a class="dropdown-toggle text-white-50 text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Last Event
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022</a></li>
-                                <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021</a></li>
-                            </ul>
-                        </div>
-                    </p>
+                    <p class="mb-2"><a href="index.html" class="text-decoration-none text-white-50">Home</a></p>
+                    <p class="mb-2"><a href="program.html" class="text-decoration-none text-white-50">Program</a></p>
+                    <p class="mb-2"><a href="participant_universities.html" class="text-decoration-none text-white-50">Participant Universities</a></p>
+                    <p class="mb-2"><a href="organizer.html" class="text-decoration-none text-white-50">Organizer</a></p>
+                    <div class="dropdown mt-2">
+                        <a class="dropdown-toggle text-decoration-none text-white-50" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Last Event
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank">ISWMSE 2022</a></li>
+                            <li><a class="dropdown-item fw-500" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank">ISWMSE 2021</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-6 social-media-footer">
                     <h5 class="font-expletus mb-4">Social Media</h5>
-                    <p class="mb-2"><a href="https://www.instagram.com/dtmm_its" target="_blank" class="text-white-50 text-decoration-none">Instagram</a></p>
-                    <p class="mb-2"><a href="https://www.youtube.com/@dtmm_its" target="_blank" class="text-white-50 text-decoration-none">Youtube</a></p>
-                    <p class="mb-2"><a href="https://www.facebook.com/materialdanmetalurgi.ftirsits" target="_blank" class="text-white-50 text-decoration-none">Facebook</a></p>
+                    <p class="mb-2"><a href="https://www.instagram.com/dtmm_its" target="_blank" class="text-decoration-none text-white-50">Instagram</a></p>
+                    <p class="mb-2"><a href="https://www.youtube.com/@dtmm_its" target="_blank" class="text-decoration-none text-white-50">YouTube</a></p>
+                    <p class="mb-2"><a href="https://www.facebook.com/materialdanmetalurgi.ftirsits" target="_blank" class="text-decoration-none text-white-50">Facebook</a></p>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 subcription-footer">
                     <h5 class="font-expletus mb-4">Subscription</h5>
-                    <p class="mb-4 text-muted small">Leave your email and we'll get the latest news and update about <span class="color-main">ISWMSE 2026</span> directly in your inbox</p>
+                    <p class="mb-4 text-white-50 small">Leave your email and get the latest news and updates about <span class="color-main fw-semibold">ISWMSE 2026</span> directly in your inbox.</p>
                     <div class="position-relative">
-                        <form onsubmit="handleSubscribe(event)">
-                            <input type="email" id="subEmail" class="form-control py-3 border-0 bg-dark text-white ps-4" style="border-radius:50px" placeholder="Type your email" required>
-                            <button type="submit" class="btn btn-primary position-absolute px-4" style="right:5px; top:5px; bottom: 5px; z-index:10; border-radius:30px;">
+                        <form class="subscription-form">
+                            <input type="email" required class="form-control py-3 ps-4 pe-5 border-0" style="border-radius:50px;" placeholder="Type your email">
+                            <button type="submit" class="btn btn-primary position-absolute px-4 text-white" style="right:6px; top:6px; bottom:6px; border-radius:30px;">
                                 Send
                             </button>
                         </form>
+                        <div class="sub-msg small mt-2 ps-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr class="border-secondary mt-5">
-        <div class="container pb-4 pt-1">
-            <div class="row">
-                <div class="col-lg-12 text-center text-md-start">
-                    <span class="text-white-50 small">© 2026 ISWMSE Copyright and rights reserved. Redesigned for Vercel & Node.js architecture.</span>
-                </div>
-            </div>
+        <hr class="border-secondary border-opacity-25 mt-4">
+        <div class="container pb-4 pt-1 text-center text-md-start">
+            <span class="small text-white-50">© 2026 ISWMSE — Department of Materials and Metallurgical Engineering ITS. All rights reserved.</span>
         </div>
     </footer>
 
-    <!-- JS Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/iswmse-modern.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            animateCounter("count1", 1, 4, 1200);
+            animateCounter("count2", 1, 4, 1200);
+            animateCounter("count3", 1, 15, 1600);
+            animateCounter("count4", 1, 20, 2000);
+
+            const images = ["assets/img/departemen-1.jpg", "assets/img/departemen-2.jpg", "assets/img/departemen-3.jpg", "assets/img/departemen-4.jpg"];
+            const titleValue = [
+                'Department of <span class="color-main">Materials and Metallurgical</span> Engineering',
+                'Department of <span class="color-main">Materials Science</span> and Engineering',
+                'Department of <span class="color-main">Materials Science</span> and Engineering',
+                'School of <span class="color-main">Materials Science</span> and Engineering',
+            ];
+            const subTitleValue = [
+                "Sepuluh Nopember Institute of Technology",
+                "National Taiwan University of Science and Technology",
+                "Kyushu Institute of Technology",
+                "Changwon National University",
+            ];
+            const subTitle2Value = ["Indonesia", "Taiwan", "Japan", "South Korea"];
+            const webParticipantValue = [
+                'https://www.its.ac.id/tmaterial/id/beranda/',
+                'https://mse.ntust.edu.tw/index.php',
+                'http://w3.matsc.kyutech.ac.jp/',
+                'https://www.changwon.ac.kr/material/main.do',
+            ];
+            let currentIndex = 0;
+
+            const imageElement = document.getElementById("image");
+            const textContainer = document.getElementById("textContainer");
+            const titleElement = document.getElementById("title");
+            const subTitleElement = document.getElementById("subTitle");
+            const subTitle2Element = document.getElementById("subTitle2");
+            const webParticipantElement = document.getElementById("webParticipant");
+
+            function updateContent() {
+                imageElement.classList.add("fade-out");
+                textContainer.classList.add("fade-out");
+                setTimeout(() => {
+                    imageElement.src = images[currentIndex];
+                    titleElement.innerHTML = titleValue[currentIndex];
+                    subTitleElement.textContent = subTitleValue[currentIndex];
+                    subTitle2Element.textContent = subTitle2Value[currentIndex];
+                    webParticipantElement.href = webParticipantValue[currentIndex];
+                    imageElement.classList.remove("fade-out");
+                    textContainer.classList.remove("fade-out");
+                }, 320);
+            }
+
+            document.getElementById("leftButton").addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateContent();
+            });
+            document.getElementById("rightButton").addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateContent();
+            });
+        });
+    </script>
 </body>
 </html>
