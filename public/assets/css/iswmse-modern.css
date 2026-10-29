@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --main-color: #FF6118;
+    --orange-color: #FF6118;
+    --blue-color: #686CE4;
+    --dark-blue: #3B3E98;
+    --bg-dark: #070709;
+    --glass-bg: rgba(18, 18, 24, 0.78);
+    --glass-border: rgba(255, 255, 255, 0.14);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+.font-expletus {
+    font-family: 'Expletus Sans', sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+.color-main {
+    color: var(--main-color) !important;
+}
+
+.color-blue {
+    color: #7C83FF !important;
+    font-weight: 700;
+}
+
+.bg-blue {
+    background: linear-gradient(135deg, #3B3E98 0%, #5256C7 100%) !important;
+}
+
+/* =========================================================
+   1. NAVBAR GLASSMORPHISM & DROPDOWN
+   ========================================================= */
+.navbar {
+    background: rgba(8, 8, 12, 0.85) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.scrolled {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+    background: rgba(5, 5, 8, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.nav-link {
+    position: relative;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0.2rem !important;
+    margin: 0 0.75rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--main-color), var(--blue-color));
+    transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-active {
+    color: #FFFFFF !important;
+}
+
+.dropdown-menu {
+    background: rgba(15, 15, 22, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 0.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    margin-top: 10px !important;
+}
+
+.dropdown-item {
+    color: #E2E8F0 !important;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    transition: all 0.25s ease;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(90deg, var(--main-color), #FF8040);
+    color: #FFFFFF !important;
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   2. HEADER BACKGROUND & HIGH READABILITY OVERLAY
+   ========================================================= */
+.header {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    min-height: 100vh;
+    height: auto !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 110px !important;
+    padding-bottom: 80px !important;
+    z-index: 1;
+}
+
+/* Lapisan gradien halus agar background asli tetap terlihat jelas namun tulisan 100% terbaca */
+.header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(5, 5, 10, 0.72) 0%,
+        rgba(8, 8, 16, 0.58) 50%,
+        rgba(7, 7, 9, 0.95) 100%
+    );
+    z-index: -1;
+}
+
+.header h1, .header h2, .header p, .header label, .header span {
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.75);
+}
+
+/* =========================================================
+   3. PROPORSI GAMBAR (ANTI-GEPENG / NO DISTORTION)
+   ========================================================= */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Gambar galeri / gedung kampus dipaksa proporsional dengan object-fit: cover */
+.img-proportional-cover {
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    object-fit: cover !important;
+    object-position: center;
+}
+
+/* Gambar logo & grup partner dipaksa utuh proporsional dengan object-fit: contain */
+.img-proportional-contain {
+    object-fit: contain !important;
+    object-position: center;
+}
+
+/* Pembatas gelombang pemisah section agar tidak melar berlebihan */
+.wave-divider {
+    width: 100%;
+    height: auto;
+    max-height: 130px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* =========================================================
+   4. CARDS, GLASSMORPHISM & HOVER TRANSITIONS
+   ========================================================= */
+.stat-box {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 24px 16px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.stat-box:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--main-color);
+    box-shadow: 0 15px 30px rgba(255, 97, 24, 0.2);
+}
+
+.elevated-card {
+    background: rgba(255, 255, 255, 0.97) !important;
+    color: #1E293B !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.elevated-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 55px rgba(59, 62, 152, 0.35);
+}
+
+/* Badge Topik Workshop */
+.topic-value {
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 13.5px;
+    padding: 8px 16px !important;
+    margin: 5px 4px !important;
+    transition: all 0.3s ease;
+    cursor: default;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.topic-value:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: linear-gradient(135deg, var(--main-color) 0%, #FF8547 100%) !important;
+    box-shadow: 0 8px 20px rgba(255, 97, 24, 0.35);
+}
+
+/* Kartu Keynote Speaker */
+.keynote-card {
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.keynote-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain !important;
+    background: radial-gradient(circle at center, rgba(59, 62, 152, 0.25), transparent 70%);
+    transition: transform 0.5s ease;
+}
+
+.keynote-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+    box-shadow: 0 20px 40px rgba(255, 97, 24, 0.25);
+}
+
+.keynote-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Kartu Organizers (Keterbacaan Tinggi) */
+.border-organizers {
+    background: rgba(18, 18, 28, 0.88) !important;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 97, 24, 0.55) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 97, 24, 0.15) !important;
+    color: #F8FAFC !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.border-organizers:hover {
+    transform: translateY(-6px);
+    border-color: #FF6118 !important;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 28px rgba(255, 97, 24, 0.35) !important;
+}
+
+.border-organizers img {
+    max-height: 110px;
+    width: auto !important;
+    max-width: 85%;
+    object-fit: contain !important;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+/* =========================================================
+   5. TOMBOL & NAVIGASI SLIDER INTERAKTIF
+   ========================================================= */
+.btn {
+    border-radius: 50px !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    letter-spacing: 0.02em;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--main-color) 0%, #FF3D00 100%) !important;
+    border: none !important;
+    box-shadow: 0 8px 25px rgba(255, 97, 24, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 97, 24, 0.55);
+}
+
+.btn-outline-glass {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-outline-glass:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: #FFFFFF !important;
+    transform: translateY(-3px);
+}
+
+.slider-nav-btn {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.slider-nav-btn:hover {
+    transform: scale(1.12);
+    filter: drop-shadow(0 6px 18px rgba(255, 97, 24, 0.7));
+}
+
+/* Animasi Scroll Reveal */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-transition {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-out {
+    opacity: 0 !important;
+    transform: translateY(8px);
+}
+
+/* Section Responsive Padding */
+section {
+    padding: 80px 20px !important;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 55px 15px !important;
+    }
+    .img-proportional-cover {
+        min-height: 280px;
+    }
+}
