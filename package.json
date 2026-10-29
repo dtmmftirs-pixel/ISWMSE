@@ -1,0 +1,10 @@
+{
+  "name": "iswmse-2026",
+  "version": "1.0.0",
+  "description": "ISWMSE 2026 Official Portal - DTMM ITS",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.x"
+  }
+}
