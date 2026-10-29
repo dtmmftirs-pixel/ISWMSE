@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 1. SPA Navigation Engine (Tab System)
-  // ==========================================
+  // ========================================== 
   const navLinks = document.querySelectorAll('.nav-route');
   const sections = document.querySelectorAll('.view-section');
 
