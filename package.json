@@ -1,15 +1,11 @@
 {
   "name": "iswmse-2026",
   "version": "1.0.0",
+  "type": "module",
   "description": "International Student Workshop on Materials Science and Engineering 2026",
-  "main": "api/subscribe.js",
   "scripts": {
-    "dev": "vercel dev", 
     "start": "npx serve public"
   },
-  "keywords": ["iswmse", "materials-science", "engineering", "its"],
-  "author": "DTMM ITS",
-  "license": "MIT",
   "devDependencies": {
     "serve": "^14.2.4"
   }
