@@ -4,7 +4,7 @@
   "description": "International Student Workshop on Materials Science and Engineering 2026",
   "main": "api/subscribe.js",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "vercel dev", 
     "start": "npx serve public"
   },
   "keywords": ["iswmse", "materials-science", "engineering", "its"],
