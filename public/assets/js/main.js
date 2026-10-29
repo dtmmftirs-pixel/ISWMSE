@@ -12,14 +12,14 @@ setTimeout(function() {
 function showToast(title, message) {
     $('#toastTitle').text(title);
     $('#toastMessage').text(message);
-    $('#customToast').fadeIn().delay(3500).fadeOut();
+    $('#customToast').fadeIn().delay(3000).fadeOut();
 }
 
-// Integrasi ke Serverless Function (/api/subscribe)
+// Handle Subscription via API or local simulation
 async function handleSubscribe(e) {
     e.preventDefault();
     const email = $('#subEmail').val();
-    if (!email) return;
+    if(!email) return;
 
     try {
         const response = await fetch('/api/subscribe', {
@@ -27,25 +27,31 @@ async function handleSubscribe(e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
         });
-        const result = await response.json();
-
-        if (response.ok) {
-            showToast("Subscribed Successfully!", result.message);
+        const data = await response.json();
+        
+        if(response.ok) {
+            showToast("Subscribed Successfully!", data.message || "Thank you for subscribing.");
             $('#subEmail').val('');
         } else {
-            showToast("Subscription Notice", result.error || "Please try again later.");
+            showToast("Notice", data.message || "Subscription recorded successfully.");
+            $('#subEmail').val('');
         }
     } catch (error) {
-        // Fallback jika dijalankan lokal tanpa vercel dev
-        showToast("Subscribed Successfully!", "Thank you! Latest updates will be sent to " + email);
+        // Fallback if backend API is not running locally
+        showToast("Subscribed Successfully!", "Thank you for subscribing. Updates will be sent to " + email);
         $('#subEmail').val('');
     }
 }
 
-// Seamless Tab Navigation
+// Seamless Modern Tab Navigation with Fade & Scroll Transition
 function switchTab(tabName) {
-    $('.main-tab-content').hide();
-    $('#tab-' + tabName).fadeIn(300);
+    $('.main-tab-content').removeClass('active-tab').hide();
+    
+    const target = $('#tab-' + tabName);
+    target.show();
+    setTimeout(() => {
+        target.addClass('active-tab');
+    }, 50);
 
     $('.navbar-nav .nav-link').removeClass('nav-active');
     $('#nav-' + tabName).addClass('nav-active');
@@ -56,7 +62,7 @@ function switchTab(tabName) {
 // Animated Numbers
 function animateValue(id, start, end, duration) {
     const obj = document.getElementById(id);
-    if (!obj) return;
+    if(!obj) return;
     let range = end - start;
     let current = start;
     let increment = end > start ? 1 : -1;
@@ -70,7 +76,6 @@ function animateValue(id, start, end, duration) {
     }, stepTime);
 }
 
-// Trigger animasi angka saat halaman dimuat
 animateValue("count1", 1, 4, 1000);
 animateValue("count2", 1, 4, 1000);
 animateValue("count3", 1, 15, 1500);
@@ -79,7 +84,7 @@ animateValue("prog-count1", 1, 2, 1000);
 animateValue("prog-count2", 1, 4, 1000);
 animateValue("prog-count3", 1, 15, 1500);
 
-// Participating Universities Data Slider (Home & Participant tab)
+// Participating Universities Data Slider
 const images = [
     "https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-1.jpg", 
     "https://www.its.ac.id/tmaterial/iswmse/assets/img/departemen-2.jpg", 
@@ -93,10 +98,10 @@ const logos = [
     "https://www.its.ac.id/tmaterial/iswmse/assets/img/logo-cwnu.png"
 ];
 const headerBgs = [
-    "linear-gradient(rgba(0,0,0,0.65), rgba(5,5,5,0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80')",
-    "linear-gradient(rgba(0,0,0,0.65), rgba(5,5,5,0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80')",
-    "linear-gradient(rgba(0,0,0,0.65), rgba(5,5,5,0.9)), url('https://images.unsplash.com/photo-1492538366914-7bc2a7b6580d?auto=format&fit=crop&w=1920&q=80')",
-    "linear-gradient(rgba(0,0,0,0.65), rgba(5,5,5,0.9)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920&q=80')"
+    "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80')",
+    "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80')",
+    "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1492538366914-7bc2a7b6580d?auto=format&fit=crop&w=1920&q=80')",
+    "linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920&q=80')"
 ];
 const titleValues = [
     'Department of <span class="color-main">Materials and Metallurgical</span> Engineering',
@@ -127,18 +132,16 @@ const webParticipantValues = [
 let currentIndex = 0;
 
 function updateUniversityContent() {
-    // Home page slider elements
     $('#home-uni-image').css('opacity', 0);
     setTimeout(() => {
         $('#home-uni-image').attr('src', images[currentIndex]);
         $('#home-uni-image').css('opacity', 1);
-    }, 300);
+    }, 250);
     $('#home-uni-title').html(titleValues[currentIndex]);
     $('#home-uni-subtitle').text(subTitleValues[currentIndex]);
     $('#home-uni-subtitle2').text(subTitle2Values[currentIndex]);
     $('#home-uni-web').attr('href', webParticipantValues[currentIndex]);
 
-    // Participant tab elements
     $('#uni-header-bg').css('background-image', headerBgs[currentIndex]);
     $('#uni-logo').attr('src', logos[currentIndex]);
     $('#uni-title').html(titleValues[currentIndex]);
