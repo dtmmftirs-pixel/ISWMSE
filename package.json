@@ -1,12 +1,12 @@
 {
-  "name": "iswmse-2026", 
-  "version": "1.0.0",
-  "type": "module",
-  "description": "International Student Workshop on Materials Science and Engineering 2026",
-  "scripts": {
-    "start": "npx serve public"
-  },
-  "devDependencies": {
-    "serve": "^14.2.4"
-  }
+"name": "iswmse-2026-portal",
+"version": "1.0.0",
+"description": "Modern Website for International Student Workshop on Materials Science and Engineering (ISWMSE 2026)",
+"main": "server.js",
+"scripts": {
+"start": "node server.js"
+},
+"dependencies": {
+"express": "^4.19.2"
+}
 }
