@@ -1,10 +1,13 @@
 {
-  "name": "iswmse-2026",
-  "version": "1.0.0",
-  "description": "International Student Workshop on Materials Science and Engineering 2026",
-  "private": true,
-  "type": "module",
+  "name": "iswmse-2026-portal",
+  "version": "2.0.0",
+  "description": "International Student Workshop on Materials Science and Engineering 2026 - DTMM ITS",
+  "main": "api/subscribe.js",
   "scripts": {
-      "start": "node server.js"
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "engines": {
+    "node": ">=18.x"
   }
 }
