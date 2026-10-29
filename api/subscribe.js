@@ -1,25 +1,14 @@
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method Not Allowed' });
-    }
-
-    const { email } = req.body;
-
-    if (!email || !email.includes('@')) {
-        return res.status(400).json({ error: 'Valid email address is required' });
-    }
-
-    try {
-        // Catatan Pengembangan AI ke depan:
-        // Di sini Anda bisa menambahkan fetch() ke Web App URL Google Apps Script 
-        // untuk menyimpan daftar email subscriber ke Google Sheets, 
-        // atau memanggil API Fonnte untuk notifikasi admin.
-
-        return res.status(200).json({
-            status: 'success',
-            message: `Thank you! Updates for ISWMSE 2026 will be sent to ${email}.`
-        });
-    } catch (error) {
-        return res.status(500).json({ error: 'Internal Server Error' });
+export default function handler(req, res) {
+    if (req.method === 'POST') {
+        const { email } = req.body;
+        if (!email) {
+            return res.status(400).json({ success: false, message: 'Email is required.' });
+        }
+        
+        // Di sini Anda bisa menambahkan logika penyimpanan email (ke Database, Google Sheets, atau Nodemailer)
+        return res.status(200).json({ success: true, message: `Successfully registered ${email} for ISWMSE 2026 updates!` });
+    } else {
+        res.setHeader('Allow', ['POST']);
+        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 }
