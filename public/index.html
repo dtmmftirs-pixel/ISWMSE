@@ -1,619 +1,1131 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISWMSE 2026 - International Student Workshop on Materials Science and Engineering</title>
-  
-  <meta property="og:title" content="ISWMSE 2026">
-  <meta property="og:description" content="Workshop offering an opportunity for sharing scientific knowledge, student education, and international collaboration.">
-  <meta property="og:image" content="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo.png">
-  <link rel="shortcut icon" href="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo.png" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISWMSE 2026 | International Student Workshop on Materials Science and Engineering</title>
+    
+    <!-- Meta Open Graph -->
+    <meta property="og:title" content="ISWMSE 2026 - International Student Workshop on Materials Science and Engineering">
+    <meta property="og:description" content="Sharing scientific & technological knowledge, student education, and international collaboration between professors and students.">
+    <meta property="og:image" content="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo.png">
+    <link rel="shortcut icon" href="https://www.its.ac.id/tmaterial/iswmse/assets/img/logo.png" type="image/x-icon">
 
-  <!-- Bootstrap 5 CSS & FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Custom Modern Dark Luxury Theme -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090a10',
+                        darkCard: '#111422',
+                        brandBlue: '#4f56f1',
+                        brandAccent: '#6366f1',
+                        brandOrange: '#ff6118',
+                        brandCyan: '#06b6d4',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        expletus: ['Expletus Sans', 'cursive', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090a10;
+            color: #f1f5f9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(17, 20, 34, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.45);
+            box-shadow: 0 16px 36px -10px rgba(99, 102, 241, 0.25);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.22) 0%, rgba(255, 97, 24, 0.07) 45%, transparent 70%);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2e45;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f56f1;
+        }
+
+        .active-tab {
+            color: #ff6118 !important;
+            font-weight: 700 !important;
+            position: relative;
+        }
+        .active-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: linear-gradient(90deg, #ff6118, #6366f1);
+            border-radius: 9999px;
+        }
+    </style>
 </head>
-<body>
+<body class="selection:bg-brandOrange selection:text-white">
 
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top py-3">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center nav-route" href="#" data-target="home">
-        <span class="fw-bold fs-4 text-white">ISWMSE <span class="color-main">2026</span></span>
-      </a>
-      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <i class="fa-solid fa-bars text-white fs-4"></i>
-      </button>
+    <!-- Ambient background light effect -->
+    <div class="fixed inset-0 pointer-events-none hero-glow z-0"></div>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item">
-            <a class="nav-link nav-route nav-active me-2" href="#" data-target="home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-route me-2" href="#" data-target="program">Program</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-route me-2" href="#" data-target="participants">Participant Universities</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-route me-2" href="#" data-target="organizer">Organizer</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Last Event</a>
-            <ul class="dropdown-menu dropdown-menu-dark-custom dropdown-menu-end">
-              <li><a class="dropdown-item" href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-2 text-muted"></i>ISWMSE 2022</a></li>
-              <li><a class="dropdown-item" href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-2 text-muted"></i>ISWMSE 2021</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ======================================================== -->
-  <!-- TAB 1: HOME VIEW -->
-  <!-- ======================================================== -->
-  <div id="home" class="view-section active">
-    <!-- Hero Header -->
-    <header class="hero-header" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80');">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="row align-items-center py-5">
-          <div class="col-lg-8 offset-lg-4 text-lg-end mb-4">
-            <h1 class="display-5 fw-bold font-expletus">
-              International Student Workshop on <br>
-              <span class="color-main">Materials Science and Engineering</span> 2026
-            </h1>
-          </div>
-        </div>
-
-        <!-- Metrics Row -->
-        <div class="row g-3 text-center my-4">
-          <div class="col-6 col-md-3">
-            <div class="counter-box">
-              <div class="counter-number" id="home-count1">1</div>
-              <div class="fw-bold small text-white">Top Universities</div>
-              <span class="text-muted smaller">Material & Metallurgy</span>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="counter-box">
-              <div class="counter-number" id="home-count2">1</div>
-              <div class="fw-bold small text-white">Keynote Speakers</div>
-              <span class="text-muted smaller">World-Class Scientists</span>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="counter-box">
-              <div class="counter-number"><span id="home-count3">1</span>+</div>
-              <div class="fw-bold small text-white">Topic Discussions</div>
-              <span class="text-muted smaller">Advanced Engineering</span>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="counter-box">
-              <div class="counter-number"><span id="home-count4">1</span>+</div>
-              <div class="fw-bold small text-white">Delegates</div>
-              <span class="text-muted smaller">Professors & Students</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-4 align-items-center">
-          <div class="col-lg-7">
-            <p class="fs-5 text-muted mb-4">
-              Offering premier opportunities for sharing scientific know-how, fostering cross-border student talent, and building enduring collaborations across international engineering faculties.
-            </p>
-            <div class="d-flex flex-wrap gap-3">
-              <a href="#about-sec" class="btn btn-outline-custom px-4 py-2">Learn More</a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" target="_blank" class="btn btn-primary-neon px-4 py-2">
-                <i class="fa-solid fa-paper-plane me-2"></i>Submit Abstract
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Video & About Department -->
-    <section class="py-5" id="about-sec">
-      <div class="container py-4">
-        <div class="watermark-container">
-          <div class="watermark-text">ABOUT WORKSHOP</div>
-          <h2 class="watermark-title display-6">Get To Know <span class="color-main">ISWMSE 2026</span></h2>
-        </div>
-
-        <div class="row justify-content-center my-4">
-          <div class="col-lg-10">
-            <div class="ratio ratio-16x9 rounded-4 overflow-hidden border border-secondary shadow-lg">
-              <iframe src="https://www.youtube.com/embed/QBwiDEm23Fk" title="ISWMSE Event Video" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-
-        <div class="row align-items-center mt-5 g-4">
-          <div class="col-md-3 text-center">
-            <img src="https://www.its.ac.id/tmaterial/wp-content/uploads/sites/48/2020/06/logo-its.png" alt="DTMM ITS" class="img-fluid logo-thumb mb-3">
-            <h5 class="font-expletus fw-bold">DTMM - ITS</h5>
-            <span class="text-muted small">Surabaya, Indonesia</span>
-          </div>
-          <div class="col-md-9 border-start border-secondary ps-md-4">
-            <p class="text-muted">
-              Department of Materials and Metallurgical Engineering ITS focuses on the science and engineering of metals, ceramics, polymers, and composites. We pioneer technological innovation in casting, welding, heat treatment, advanced corrosion prevention, and novel functional materials for industrial advancement.
-            </p>
-            <a href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="text-decoration-none color-main fw-bold">
-              Visit Department Portal <i class="fa-solid fa-arrow-right ms-2"></i>
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="mainHeader">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 mt-2 sm:mt-4 rounded-2xl glass-panel border border-white/10 shadow-2xl flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#home" onclick="switchPage('home')" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandOrange via-brandAccent to-brandCyan flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-atom text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-expletus text-xl font-bold tracking-wider text-white group-hover:text-brandOrange transition-colors">ISWMSE <span class="text-brandOrange">2026</span></span>
+                    <span class="text-[10px] tracking-widest uppercase text-slate-400 font-semibold">Materials Science & Eng.</span>
+                </div>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Workshop Scope & Timetable -->
-    <section class="py-5 bg-black">
-      <div class="container py-4">
-        <div class="row g-4">
-          <div class="col-lg-8">
-            <div class="card card-glass p-4 h-100">
-              <h4 class="font-expletus fw-bold text-white mb-3">Workshop Objectives</h4>
-              <p class="text-muted">
-                Materials science and engineering continue to unlock revolutionary solutions across clean energy, aerospace, medicine, and electronic hardware. While conventional conferences often present high barriers for early-career students, ISWMSE is deliberately engineered to bring students and professors together into collaborative, accessible scholarly dialogue.
-              </p>
-              <p class="text-muted">
-                Each participating university contributes its core scientific breakthroughs, igniting cross-border joint research initiatives and equipping students with international leadership competencies.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card card-glass p-4 mb-4">
-              <h5 class="font-expletus fw-bold text-white mb-3">Important Timeline</h5>
-              <table class="w-100 timeline-table small">
-                <tr><td class="color-main fw-bold">01 - 18 Nov</td><td class="text-muted ps-2">Registration & Abstract</td></tr>
-                <tr><td class="color-main fw-bold">25 Nov</td><td class="text-muted ps-2">Selection Notification</td></tr>
-                <tr><td class="color-main fw-bold">06 Dec</td><td class="text-muted ps-2">Speaker Announcements</td></tr>
-                <tr><td class="color-accent fw-bold">22 - 23 Dec</td><td class="text-white ps-2">D-Day ISWMSE 2026</td></tr>
-                <tr><td class="color-main fw-bold">TBA</td><td class="text-muted ps-2">Award Winners Announcement</td></tr>
-              </table>
-            </div>
-
-            <div class="card card-glass p-4">
-              <h5 class="font-expletus fw-bold text-white mb-2">Scope & Topics</h5>
-              <div>
-                <span class="topic-tag">Material Processing</span>
-                <span class="topic-tag">Nanomaterials</span>
-                <span class="topic-tag">Energy Materials</span>
-                <span class="topic-tag">Bio Materials</span>
-                <span class="topic-tag">Characterization</span>
-                <span class="topic-tag">Structural Metallurgy</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- University Slider Feature -->
-    <section class="py-5">
-      <div class="container py-4">
-        <div class="watermark-container">
-          <div class="watermark-text">PARTNERS</div>
-          <h2 class="watermark-title display-6">Participating <span class="color-main">Universities</span></h2>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="card card-glass overflow-hidden">
-              <div class="row g-0 align-items-center">
-                <div class="col-lg-6 p-4 p-md-5">
-                  <span id="uni-country" class="badge bg-primary px-3 py-2 mb-3">Indonesia</span>
-                  <h3 id="uni-title" class="font-expletus fw-bold mb-3">
-                    Department of <span class="color-main">Materials and Metallurgical</span> Engineering
-                  </h3>
-                  <p id="uni-sub" class="text-muted mb-4">Sepuluh Nopember Institute of Technology</p>
-                  
-                  <div class="d-flex align-items-center gap-3">
-                    <a id="uni-link" href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="btn btn-primary-neon px-4 py-2">
-                      Visit Institution <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
-                    </a>
-                    <div class="ms-auto d-flex gap-2">
-                      <button id="btn-uni-prev" class="btn btn-outline-custom rounded-circle p-2" style="width:42px;height:42px;"><i class="fa-solid fa-chevron-left"></i></button>
-                      <button id="btn-uni-next" class="btn btn-outline-custom rounded-circle p-2" style="width:42px;height:42px;"><i class="fa-solid fa-chevron-right"></i></button>
+            <!-- Desktop Nav Items -->
+            <div class="hidden lg:flex items-center space-x-7 font-medium text-sm text-slate-200">
+                <a href="#home" onclick="switchPage('home')" id="nav-home" class="nav-btn transition-colors hover:text-brandOrange">Home</a>
+                <a href="#program" onclick="switchPage('program')" id="nav-program" class="nav-btn transition-colors hover:text-brandOrange">Program</a>
+                <a href="#participant_universities" onclick="switchPage('participant_universities')" id="nav-participant_universities" class="nav-btn transition-colors hover:text-brandOrange">Participant Universities</a>
+                <a href="#organizer" onclick="switchPage('organizer')" id="nav-organizer" class="nav-btn transition-colors hover:text-brandOrange">Organizer</a>
+                
+                <!-- Last Event Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 py-1 text-slate-200 hover:text-brandOrange transition-colors focus:outline-none">
+                        <span>Last Event</span>
+                        <i class="fa-solid fa-chevron-down text-xs opacity-75 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 py-2 rounded-xl glass-panel border border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
+                        <a href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-white/10 hover:text-brandOrange transition-colors">
+                            <span>ISWMSE 2022</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-4 py-2.5 text-xs text-slate-200 hover:bg-white/10 hover:text-brandOrange transition-colors">
+                            <span>ISWMSE 2021</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                        </a>
                     </div>
-                  </div>
                 </div>
-
-                <div class="col-lg-6">
-                  <div class="uni-carousel-wrapper">
-                    <img id="uni-img" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" alt="University campus">
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 
-  <!-- ======================================================== -->
-  <!-- TAB 2: PROGRAM VIEW -->
-  <!-- ======================================================== -->
-  <div id="program" class="view-section">
-    <header class="hero-header" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80');">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="row align-items-center py-5">
-          <div class="col-lg-8 offset-lg-4 text-lg-end mb-4">
-            <h1 class="display-5 fw-bold font-expletus">
-              Workshop Program & <br>
-              <span class="color-main">Keynote Sessions</span>
-            </h1>
-            <p class="text-muted">[ 12 - 13, December. Indonesia, Japan, Taiwan, and Korea Local Time ]</p>
-          </div>
-        </div>
-
-        <div class="row g-3 text-center my-4">
-          <div class="col-4">
-            <div class="counter-box">
-              <div class="counter-number" id="prog-count1">1</div>
-              <div class="fw-bold small text-white">Full Event Days</div>
+            <!-- Header CTA -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" target="_blank" class="px-5 py-2.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-brandOrange to-pink-600 text-white shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:scale-[1.03] transition-all flex items-center gap-2">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <span>Submit Abstract</span>
+                </a>
             </div>
-          </div>
-          <div class="col-4">
-            <div class="counter-box">
-              <div class="counter-number" id="prog-count2">1</div>
-              <div class="fw-bold small text-white">Keynote Speakers</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="counter-box">
-              <div class="counter-number"><span id="prog-count3">1</span>+</div>
-              <div class="fw-bold small text-white">Topics Covered</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
 
-    <!-- Keynote Speakers -->
-    <section class="py-5 bg-black">
-      <div class="container py-4">
-        <div class="watermark-container">
-          <div class="watermark-text">SPEAKERS</div>
-          <h2 class="watermark-title display-6">Distinguished <span class="color-main">Keynote Speakers</span></h2>
-          <p class="text-muted">Honoring exceptional engineering scholars from our 4 partner institutions</p>
-        </div>
-
-        <div class="row g-4 justify-content-center">
-          <div class="col-md-4 col-sm-6">
-            <div class="card card-glass p-3 text-center">
-              <div class="speaker-img-wrapper mb-3">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Keynote Speaker 1">
-              </div>
-              <h5 class="font-expletus fw-bold text-white mb-1">Prof. Diah Susanti</h5>
-              <p class="text-muted small mb-0">Institut Teknologi Sepuluh Nopember</p>
-              <span class="badge bg-secondary mt-2">Functional Materials</span>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="card card-glass p-3 text-center">
-              <div class="speaker-img-wrapper mb-3">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Keynote Speaker 2">
-              </div>
-              <h5 class="font-expletus fw-bold text-white mb-1">Prof. Tatsuya Tokunaga</h5>
-              <p class="text-muted small mb-0">Kyushu Institute of Technology</p>
-              <span class="badge bg-secondary mt-2">Physical Metallurgy</span>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="card card-glass p-3 text-center">
-              <div class="speaker-img-wrapper mb-3">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Keynote Speaker 3">
-              </div>
-              <h5 class="font-expletus fw-bold text-white mb-1">Prof. Yu-Sheng Hsiao</h5>
-              <p class="text-muted small mb-0">NTUST Taiwan</p>
-              <span class="badge bg-secondary mt-2">Electronic Polymers</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center mt-5">
-          <div class="col-lg-8 text-center">
-            <div class="card card-glass p-4 border-primary">
-              <h4 class="font-expletus text-white">Need the Full Rundown?</h4>
-              <p class="text-muted">The workshop will be divided into Professor keynotes and Student parallel tracks.</p>
-              <a href="https://drive.google.com/file/d/1qmaIF5FitZ1efs3Y1u_pwL6GLCo7Nt-y/view?usp=drive_link" target="_blank" class="btn btn-primary-neon px-4 py-2 mx-auto">
-                <i class="fa-solid fa-file-pdf me-2"></i>Download Schedule PDF
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ======================================================== -->
-  <!-- TAB 3: PARTICIPANTS VIEW -->
-  <!-- ======================================================== -->
-  <div id="participants" class="view-section">
-    <header class="hero-header" style="background-image: url('https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&w=1920&q=80');">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="row align-items-center py-5">
-          <div class="col-lg-8 offset-lg-4 text-lg-end mb-4">
-            <h1 class="display-5 fw-bold font-expletus">
-              Partner Universities & <br>
-              <span class="color-main">Research Institutions</span>
-            </h1>
-            <p class="text-muted">A quad-nation coalition advancing next-generation materials science.</p>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section class="py-5 bg-black">
-      <div class="container py-4">
-        <div class="row g-4">
-          <!-- ITS -->
-          <div class="col-md-6">
-            <div class="card card-glass p-4 h-100">
-              <div class="d-flex align-items-center mb-3">
-                <img src="https://www.its.ac.id/tmaterial/wp-content/uploads/sites/48/2020/06/logo-its.png" alt="ITS" class="logo-thumb me-3">
-                <div>
-                  <h5 class="font-expletus fw-bold text-white mb-0">Institut Teknologi Sepuluh Nopember</h5>
-                  <span class="badge bg-primary">Surabaya, Indonesia</span>
-                </div>
-              </div>
-              <p class="text-muted small">
-                Offers comprehensive education & innovation in metallurgy, corrosion protection, heat treatments, nanomaterials, and high-performance alloys.
-              </p>
-              <a href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="btn btn-outline-custom btn-sm mt-auto">Portal Website</a>
-            </div>
-          </div>
-
-          <!-- NTUST -->
-          <div class="col-md-6">
-            <div class="card card-glass p-4 h-100">
-              <div class="d-flex align-items-center mb-3">
-                <img src="https://www.ntust.edu.tw/var/file/0/1000/msys_1000_5760824_43232.png" alt="NTUST" class="logo-thumb me-3">
-                <div>
-                  <h5 class="font-expletus fw-bold text-white mb-0">National Taiwan University of Science and Tech</h5>
-                  <span class="badge bg-info">Taipei, Taiwan</span>
-                </div>
-              </div>
-              <p class="text-muted small">
-                Internationally renowned for specialized polymers, optoelectronics, semiconductor materials, and energy harvesting materials.
-              </p>
-              <a href="https://mse.ntust.edu.tw/index.php" target="_blank" class="btn btn-outline-custom btn-sm mt-auto">Portal Website</a>
-            </div>
-          </div>
-
-          <!-- Kyutech -->
-          <div class="col-md-6">
-            <div class="card card-glass p-4 h-100">
-              <div class="d-flex align-items-center mb-3">
-                <img src="https://www.kyutech.ac.jp/assets/img/common/logo.svg" alt="Kyutech" class="logo-thumb me-3">
-                <div>
-                  <h5 class="font-expletus fw-bold text-white mb-0">Kyushu Institute of Technology</h5>
-                  <span class="badge bg-danger">Fukuoka, Japan</span>
-                </div>
-              </div>
-              <p class="text-muted small">
-                Leading atomic-level structural characterization, novel bonding technologies, circular metallurgical recycling, and aerospace structural composites.
-              </p>
-              <a href="http://w3.matsc.kyutech.ac.jp/" target="_blank" class="btn btn-outline-custom btn-sm mt-auto">Portal Website</a>
-            </div>
-          </div>
-
-          <!-- Changwon -->
-          <div class="col-md-6">
-            <div class="card card-glass p-4 h-100">
-              <div class="d-flex align-items-center mb-3">
-                <img src="https://www.changwon.ac.kr/upload/editor/images/202103/20210330105315802_V7V8K2G4.png" alt="Changwon" class="logo-thumb me-3">
-                <div>
-                  <h5 class="font-expletus fw-bold text-white mb-0">Changwon National University</h5>
-                  <span class="badge bg-warning text-dark">Changwon, South Korea</span>
-                </div>
-              </div>
-              <p class="text-muted small">
-                Pioneering cutting-edge research in microstructural correlation, mechanical integrity, and advanced synthesis for Korean industrial tech ecosystems.
-              </p>
-              <a href="https://www.changwon.ac.kr/material/main.do" target="_blank" class="btn btn-outline-custom btn-sm mt-auto">Portal Website</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ======================================================== -->
-  <!-- TAB 4: ORGANIZER VIEW -->
-  <!-- ======================================================== -->
-  <div id="organizer" class="view-section">
-    <header class="hero-header" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="row align-items-center py-5">
-          <div class="col-lg-8 offset-lg-4 text-lg-end mb-4">
-            <h1 class="display-5 fw-bold font-expletus">
-              Organizing <span class="color-accent">Committee</span>
-            </h1>
-            <p class="text-muted">The dedicated minds behind ISWMSE 2026 conference & workshop.</p>
-          </div>
-        </div>
-
-        <!-- Chairperson Box -->
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-6">
-            <div class="card card-organizer p-4 text-center">
-              <span class="badge bg-warning text-dark mx-auto mb-2 px-3 py-1 fw-bold">Chairperson</span>
-              <h4 class="font-expletus fw-bold text-white mb-1">Yusuf Pradesar, S.T., M.T., M.Sc., Ph.D.</h4>
-              <p class="text-muted small mb-0">Department of Materials and Metallurgical Engineering, ITS</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section class="py-5 bg-black">
-      <div class="container py-4">
-        <div class="row g-4">
-          <!-- ITS Committee -->
-          <div class="col-lg-6">
-            <div class="card card-organizer p-4 h-100">
-              <h5 class="color-accent font-expletus fw-bold mb-3">Indonesia — DTMM ITS</h5>
-              <div class="mb-3">
-                <span class="fw-bold text-white d-block mb-1">Faculty Advisors:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Prof. Diah Susanti</li>
-                  <li>Prof. Yusuf Pradesar</li>
-                  <li>Mrs. Amaliya Rasyida</li>
-                </ul>
-              </div>
-              <div>
-                <span class="fw-bold text-white d-block mb-1">Student Committee:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Reynard Hanif</li>
-                  <li>Azi Fahrudin Ahsani</li>
-                  <li>Rafi Mubarak</li>
-                  <li>Himawan Rashad</li>
-                  <li>Raditya Khansa Wijaya</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- CWNU Committee -->
-          <div class="col-lg-6">
-            <div class="card card-organizer p-4 h-100">
-              <h5 class="color-accent font-expletus fw-bold mb-3">South Korea — CWNU</h5>
-              <div class="mb-3">
-                <span class="fw-bold text-white d-block mb-1">Faculty Advisor:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Prof. Jun-Seob Lee</li>
-                </ul>
-              </div>
-              <div>
-                <span class="fw-bold text-white d-block mb-1">Student Committee:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Ms. Jae-Min Jung</li>
-                  <li>Mr. Chol-Hyeok Yang</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- NTUST Committee -->
-          <div class="col-lg-6">
-            <div class="card card-organizer p-4 h-100">
-              <h5 class="color-accent font-expletus fw-bold mb-3">Taiwan — NTUST</h5>
-              <div class="mb-3">
-                <span class="fw-bold text-white d-block mb-1">Faculty Advisor:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Prof. Yu-Sheng Hsiao</li>
-                </ul>
-              </div>
-              <div>
-                <span class="fw-bold text-white d-block mb-1">Student Committee:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Mr. Meng-Chun Chiu</li>
-                  <li>Mr. Hsuan-Cheng Huang</li>
-                  <li>Mr. Tao-Jyun Hsu</li>
-                  <li>Mr. Tsung-Lin Li</li>
-                  <li>Mr. Sheng-Ping Chang</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Kyutech Committee -->
-          <div class="col-lg-6">
-            <div class="card card-organizer p-4 h-100">
-              <h5 class="color-accent font-expletus fw-bold mb-3">Japan — Kyutech</h5>
-              <div class="mb-3">
-                <span class="fw-bold text-white d-block mb-1">Faculty Advisors:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Prof. Tatsuya Tokunaga</li>
-                  <li>Prof. Ken'ichi Yokoyama</li>
-                  <li>Prof. Kaori Seino</li>
-                </ul>
-              </div>
-              <div>
-                <span class="fw-bold text-white d-block mb-1">Student Committee:</span>
-                <ul class="text-muted small ps-3 mb-0">
-                  <li>Mr. Kuga Ando</li>
-                  <li>Mr. Kota Fujiwara</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ======================================================== -->
-  <!-- FOOTER -->
-  <!-- ======================================================== -->
-  <footer class="footer-custom pt-5 pb-3">
-    <div class="container">
-      <div class="row g-4 mb-4">
-        <div class="col-lg-4">
-          <h4 class="font-expletus fw-bold text-white mb-3">ISWMSE <span class="color-main">2026</span></h4>
-          <p class="text-muted small">
-            Department of Materials and Metallurgical Engineering<br>
-            Institut Teknologi Sepuluh Nopember<br>
-            Building MT 2nd Floor, Kampus ITS Sukolilo, Surabaya 60111<br>
-            Email: <a href="mailto:iswmse.its@gmail.com" class="text-decoration-none text-white">iswmse.its@gmail.com</a>
-          </p>
-        </div>
-
-        <div class="col-lg-2 col-6">
-          <h6 class="font-expletus text-white mb-3">Navigation</h6>
-          <a href="#" class="footer-link nav-route d-block" data-target="home">Home</a>
-          <a href="#" class="footer-link nav-route d-block" data-target="program">Program</a>
-          <a href="#" class="footer-link nav-route d-block" data-target="participants">Participants</a>
-          <a href="#" class="footer-link nav-route d-block" data-target="organizer">Organizer</a>
-        </div>
-
-        <div class="col-lg-2 col-6">
-          <h6 class="font-expletus text-white mb-3">Connect</h6>
-          <a href="https://www.instagram.com/dtmm_its" target="_blank" class="footer-link d-block"><i class="fa-brands fa-instagram me-2"></i>Instagram</a>
-          <a href="https://www.youtube.com/@dtmm_its" target="_blank" class="footer-link d-block"><i class="fa-brands fa-youtube me-2"></i>YouTube</a>
-          <a href="https://www.facebook.com/materialdanmetalurgi.ftirsits" target="_blank" class="footer-link d-block"><i class="fa-brands fa-facebook me-2"></i>Facebook</a>
-        </div>
-
-        <div class="col-lg-4">
-          <h6 class="font-expletus text-white mb-3">Stay Updated</h6>
-          <p class="text-muted small mb-3">Subscribe to get conference reminders and keynote schedule updates.</p>
-          <form id="subscribe-form" class="position-relative">
-            <input type="email" id="subscribe-email" class="form-control input-subscribe" placeholder="Enter your email" required>
-            <button type="submit" class="btn btn-primary-neon position-absolute top-50 end-0 translate-middle-y me-2 px-4 py-1" style="height: calc(100% - 10px);">
-              Send
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
             </button>
-          </form>
-          <div id="subscribe-msg"></div>
+        </nav>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="p-5 rounded-2xl glass-panel flex flex-col space-y-3 text-slate-200 border border-white/10">
+                <a href="#home" onclick="switchPage('home'); toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-white/5 hover:text-brandOrange">Home</a>
+                <a href="#program" onclick="switchPage('program'); toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-white/5 hover:text-brandOrange">Program</a>
+                <a href="#participant_universities" onclick="switchPage('participant_universities'); toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-white/5 hover:text-brandOrange">Participant Universities</a>
+                <a href="#organizer" onclick="switchPage('organizer'); toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-white/5 hover:text-brandOrange">Organizer</a>
+                <div class="pt-2 border-t border-white/10">
+                    <span class="text-xs uppercase tracking-wider text-slate-400 block px-3 mb-1">Last Events Archive</span>
+                    <a href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank" class="block py-1.5 px-3 text-xs hover:text-brandOrange">ISWMSE 2022 <i class="fa-solid fa-external-link text-[10px] ml-1 opacity-70"></i></a>
+                    <a href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank" class="block py-1.5 px-3 text-xs hover:text-brandOrange">ISWMSE 2021 <i class="fa-solid fa-external-link text-[10px] ml-1 opacity-70"></i></a>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" target="_blank" class="mt-2 text-center py-2.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-brandOrange to-pink-600 text-white">
+                    Submit Abstract
+                </a>
+            </div>
         </div>
-      </div>
+    </header>
 
-      <hr class="border-secondary my-3">
-      <div class="text-center text-muted small py-2">
-        &copy; 2026 ISWMSE - Department of Materials and Metallurgical Engineering ITS. All rights reserved.
-      </div>
-    </div>
-  </footer>
+    <!-- Main Content Container -->
+    <main class="relative z-10 pt-24 min-h-screen">
 
-  <!-- Bootstrap 5 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Main Script -->
-  <script src="assets/js/main.js"></script>
+        <!-- ======================= PAGE 1: HOME ======================= -->
+        <section id="page-home" class="page-view block">
+            <!-- Hero Section -->
+            <div class="relative min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+                <!-- Background Image Layer with Preserved Original Assets & Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/img/header-home.jpg" onerror="this.src='https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920&auto=format&fit=crop'" alt="Background" class="w-full h-full object-cover opacity-25 filter blur-[1px]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/85 to-transparent"></div>
+                </div>
+
+                <div class="relative z-10 max-w-7xl mx-auto w-full">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-8 space-y-6">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-semibold backdrop-blur-md">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>Hybrid International Workshop &bull; Surabaya, Indonesia</span>
+                            </div>
+                            <h1 class="font-expletus text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+                                International Student Workshop on <br class="hidden sm:inline">
+                                <span class="bg-gradient-to-r from-brandOrange via-amber-300 to-indigo-400 bg-clip-text text-transparent">Materials Science and Engineering</span> 2026
+                            </h1>
+                            <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                                The purpose of this workshop is offering an opportunity of sharing scientific and technological knowledges, education of students, and international collaboration between participating professors and students.
+                            </p>
+                            <p class="text-brandOrange font-bold tracking-widest text-sm uppercase">#MATERIALSENGINEERING</p>
+                            
+                            <div class="flex flex-wrap items-center gap-4 pt-2">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLMFVs54VAdCg0AKIbJltOY4WGGnhaePTxPslGJaD6Eysg8g/viewform" target="_blank" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-brandOrange to-pink-600 text-white font-semibold text-sm shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-file-arrow-up"></i>
+                                    <span>Submit Abstract</span>
+                                </a>
+                                <a href="#getToKnowAbout" class="px-7 py-3.5 rounded-xl glass-panel hover:bg-white/10 text-slate-200 border border-white/15 font-semibold text-sm transition-all hover:-translate-y-0.5">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Partner / Graphic Illustration -->
+                        <div class="lg:col-span-4 flex flex-col items-center justify-center">
+                            <div class="w-full max-w-sm p-6 rounded-3xl glass-panel border border-white/15 shadow-2xl relative group overflow-hidden">
+                                <div class="absolute -top-12 -right-12 w-32 h-32 bg-brandAccent/30 rounded-full blur-3xl pointer-events-none"></div>
+                                <div class="h-44 w-full flex items-center justify-center p-2">
+                                    <img src="assets/img/group-partner.png" onerror="this.src='https://placehold.co/400x200/1e2238/ffffff?text=Partner+Institutions'" alt="Group Partner" class="max-h-full max-w-full object-contain filter drop-shadow-lg transition-transform group-hover:scale-105">
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-white/10 text-center">
+                                    <span class="text-xs font-semibold text-slate-300">Co-Organized by 4 Global Universities</span>
+                                    <div class="flex justify-center gap-2 mt-2 text-xs text-brandCyan">
+                                        <span>Indonesia</span> &bull; <span>Taiwan</span> &bull; <span>Japan</span> &bull; <span>Korea</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Banner Counters -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16 pt-8 border-t border-white/10">
+                        <div class="p-5 rounded-2xl glass-panel text-center group">
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-expletus flex justify-center items-center">
+                                <span class="counter" data-target="4">0</span>
+                            </h2>
+                            <p class="text-xs sm:text-sm font-semibold text-brandOrange mt-1">Top International Universities</p>
+                            <span class="text-[11px] text-slate-400">Materials Science & Engineering</span>
+                        </div>
+                        <div class="p-5 rounded-2xl glass-panel text-center group">
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-expletus flex justify-center items-center">
+                                <span class="counter" data-target="4">0</span>
+                            </h2>
+                            <p class="text-xs sm:text-sm font-semibold text-brandOrange mt-1">Keynotes Speakers</p>
+                            <span class="text-[11px] text-slate-400">World-class professors</span>
+                        </div>
+                        <div class="p-5 rounded-2xl glass-panel text-center group">
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-expletus flex justify-center items-center">
+                                <span class="counter" data-target="15">0</span>+
+                            </h2>
+                            <p class="text-xs sm:text-sm font-semibold text-brandOrange mt-1">Topic Discussions</p>
+                            <span class="text-[11px] text-slate-400">Multidisciplinary fields</span>
+                        </div>
+                        <div class="p-5 rounded-2xl glass-panel text-center group">
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-expletus flex justify-center items-center">
+                                <span class="counter" data-target="20">0</span>+
+                            </h2>
+                            <p class="text-xs sm:text-sm font-semibold text-brandOrange mt-1">Professors & Students</p>
+                            <span class="text-[11px] text-slate-400">From 4 Top Universities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get To Know Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="getToKnowAbout">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-semibold tracking-wider text-brandOrange uppercase">Discover The Conference</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-expletus text-white mt-2">
+                        Get To Know about <span class="text-brandOrange">ISWMSE 2026</span>
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-3">Watch our introduction stream and explore the host department in Surabaya, Indonesia.</p>
+                </div>
+
+                <!-- Video Frame -->
+                <div class="rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-2xl p-2 sm:p-4 mb-16">
+                    <div class="relative w-full pb-[56.25%] h-0 rounded-2xl overflow-hidden bg-black/40">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-2xl" src="https://www.youtube.com/embed/QBwiDEm23Fk?si=eHBF05f5Bcn7JNB6" title="ISWMSE YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Host Profile Card -->
+                <div class="rounded-3xl glass-panel p-8 sm:p-10 border border-white/10 relative overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-3 flex justify-center">
+                            <div class="w-32 h-32 rounded-2xl bg-white/5 border border-white/10 p-4 flex items-center justify-center shadow-lg">
+                                <img src="assets/img/logo-dtmm.png" onerror="this.src='https://placehold.co/180x180/090a10/ffffff?text=DTMM+ITS'" alt="DTMM Logo" class="max-w-full max-h-full object-contain">
+                            </div>
+                        </div>
+                        <div class="md:col-span-9 space-y-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-brandBlue/20 text-indigo-300 font-semibold border border-brandBlue/30">Host Department</span>
+                            <h3 class="text-2xl font-bold font-expletus text-white">Department of Materials and Metallurgical Engineering - Indonesia</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed text-justify">
+                                Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others.
+                            </p>
+                            <div>
+                                <a href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="inline-flex items-center gap-2 text-brandOrange hover:text-amber-400 font-semibold text-sm transition-all group">
+                                    <span>Read More About DTMM ITS</span>
+                                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Objective, Topics & Timeline Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 bg-black/40 border-y border-white/5">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-12">
+                        <img src="assets/img/row-group-partner.png" onerror="this.src='https://placehold.co/400x80/090a10/ffffff?text=Partner+Universities'" alt="Partner logos" class="mx-auto h-12 object-contain opacity-80 mb-6">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-expletus text-white">
+                            International Student Workshop on Materials <br>
+                            Science and Engineering <span class="text-brandOrange">ISWMSE 2026</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Objectives (8 Cols) -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="rounded-3xl glass-panel p-8 border border-white/10 h-full">
+                                <div class="flex items-center gap-3 mb-6">
+                                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                                        <i class="fa-solid fa-bullseye text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold font-expletus text-white">Workshop Objective</h3>
+                                </div>
+                                <div class="text-slate-300 text-sm leading-relaxed space-y-4 text-justify">
+                                    <p>We are organizing this collaborative workshop in materials science and engineering to facilitate the exchange of scientific and technological knowledge, promote student education, and foster international partnerships among professors and students.</p>
+                                    <p>Materials science and engineering have opened up new avenues for fundamental research, playing a crucial role in various technologies. Innovations in materials hold the potential to drive advancements in both science and technology. Each university and institution is actively researching materials science and engineering, specializing in their respective vital areas. Sharing these insights will deepen our understanding of materials, and this workshop provides a unique opportunity to initiate new joint research endeavors.</p>
+                                    <p>While numerous international conferences are dedicated to materials science and engineering, it can be challenging for some students to participate in these events, and educational workshops for students are often limited. In our workshop, many students can present their research findings, and some may even become involved in the workshop's organization.</p>
+                                    <p>Establishing international collaborations among professors and facilitating interactions among students is essential. Partnerships at the departmental level are critical for global engagement, and this joint workshop will enhance connections between departments and among individual professors and students.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Topics & Timeline (5 Cols) -->
+                        <div class="lg:col-span-5 space-y-8">
+                            <!-- Topics Card -->
+                            <div class="rounded-3xl glass-panel p-7 border border-white/10">
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 rounded-xl bg-brandOrange/20 text-brandOrange flex items-center justify-center">
+                                        <i class="fa-solid fa-tags"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold font-expletus text-white">Scope & Topics</h3>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Processing</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Function</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Property</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Structure</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Characterization</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Physics</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Application</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Chemistry</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Material Design</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Energy Material</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Electronic Material</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Bio Material</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Nanomaterial</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Structural Material</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Advanced & Novel Materials</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full bg-indigo-600/20 text-indigo-300 border border-indigo-500/30">Other Related Topics</span>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Card -->
+                            <div class="rounded-3xl glass-panel p-7 border border-white/10">
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                                        <i class="fa-regular fa-calendar-check"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold font-expletus text-white">Event Timeline</h3>
+                                </div>
+                                <div class="space-y-3.5 text-sm">
+                                    <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                                        <span class="text-brandCyan font-semibold">01 - 18 Nov</span>
+                                        <span class="text-slate-200">Registration Applicants</span>
+                                    </div>
+                                    <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                                        <span class="text-brandCyan font-semibold">25 Nov</span>
+                                        <span class="text-slate-200">Announcement of Selection</span>
+                                    </div>
+                                    <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                                        <span class="text-brandCyan font-semibold">06 Dec</span>
+                                        <span class="text-slate-200">Announcement Speakers</span>
+                                    </div>
+                                    <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                                        <span class="text-brandOrange font-bold">22 - 23 Dec</span>
+                                        <span class="text-white font-medium">D-Day ISWMSE 2026</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-emerald-400 font-semibold">Soon</span>
+                                        <span class="text-slate-300">Award Winners Announced</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Universities Showcase Slider -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="takeALook">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-semibold tracking-wider text-brandOrange uppercase">Participating Entities</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-expletus text-white mt-2">
+                        Take a Look at <span class="text-brandOrange">Participating Universities</span>
+                    </h2>
+                </div>
+
+                <div class="max-w-5xl mx-auto rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl relative">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[420px]">
+                        <!-- Left Info -->
+                        <div class="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between bg-darkCard/90 border-b lg:border-b-0 lg:border-r border-white/10">
+                            <div>
+                                <span id="homeSliderCountry" class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-brandOrange/20 text-brandOrange border border-brandOrange/30">
+                                    Indonesia
+                                </span>
+                                <h3 id="homeSliderTitle" class="text-2xl sm:text-3xl font-bold font-expletus text-white mt-4 leading-snug">
+                                    Department of <span class="text-brandOrange">Materials and Metallurgical</span> Engineering
+                                </h3>
+                                <p id="homeSliderUniv" class="text-slate-300 text-sm mt-3 font-medium">
+                                    Sepuluh Nopember Institute of Technology (ITS)
+                                </p>
+                            </div>
+
+                            <div class="pt-8 flex items-center justify-between">
+                                <a id="homeSliderLink" href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brandBlue to-indigo-600 text-white font-semibold text-xs hover:shadow-lg hover:shadow-indigo-500/30 transition-all flex items-center gap-2">
+                                    <span>Visit Department</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+
+                                <div class="flex items-center gap-2">
+                                    <button id="sliderPrevBtn" class="w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 text-white flex items-center justify-center transition-all" aria-label="Previous">
+                                        <i class="fa-solid fa-arrow-left text-sm"></i>
+                                    </button>
+                                    <button id="sliderNextBtn" class="w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 text-white flex items-center justify-center transition-all" aria-label="Next">
+                                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Image (Preserving exact aspect ratios, no stretching/gepeng) -->
+                        <div class="lg:col-span-6 relative h-64 sm:h-80 lg:h-auto overflow-hidden bg-black/50">
+                            <img id="homeSliderImg" src="assets/img/departemen-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=900&auto=format&fit=crop'" alt="Campus building" class="w-full h-full object-cover transition-opacity duration-500 ease-in-out">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkCard lg:from-transparent to-transparent opacity-60"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- ======================= PAGE 2: PROGRAM ======================= -->
+        <section id="page-program" class="page-view hidden">
+            <!-- Program Hero -->
+            <div class="relative py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/img/header-program.jpg" onerror="this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1920&auto=format&fit=crop'" alt="Program Header" class="w-full h-full object-cover opacity-20 filter blur-[1px]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/90 to-transparent"></div>
+                </div>
+
+                <div class="relative z-10 max-w-7xl mx-auto text-center space-y-6">
+                    <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-brandOrange/20 text-brandOrange border border-brandOrange/30">Workshop Schedule & Keynotes</span>
+                    <h1 class="text-3xl sm:text-5xl font-bold font-expletus text-white">
+                        ISWMSE 2026 <span class="text-brandOrange">Program Structure</span>
+                    </h1>
+                    <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
+                        [ 12 - 13, December &bull; Indonesia, Japan, Taiwan, and Korea local time ]
+                    </p>
+
+                    <!-- Fast Stat Badges -->
+                    <div class="flex flex-wrap justify-center gap-6 pt-4">
+                        <div class="px-6 py-3 rounded-2xl glass-panel border border-white/10 text-center">
+                            <div class="text-2xl font-bold text-brandOrange font-expletus">2 Days</div>
+                            <span class="text-xs text-slate-400">Intensive Conference</span>
+                        </div>
+                        <div class="px-6 py-3 rounded-2xl glass-panel border border-white/10 text-center">
+                            <div class="text-2xl font-bold text-brandOrange font-expletus">4 Keynotes</div>
+                            <span class="text-xs text-slate-400">Distinguished Scholars</span>
+                        </div>
+                        <div class="px-6 py-3 rounded-2xl glass-panel border border-white/10 text-center">
+                            <div class="text-2xl font-bold text-brandOrange font-expletus">15+ Topics</div>
+                            <span class="text-xs text-slate-400">Frontier Materials Science</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keynotes Speaker Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-semibold text-brandOrange uppercase tracking-wider">Distinguished Experts</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-expletus text-white mt-1">
+                        Who's <span class="text-brandOrange">Speaking?</span>
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-2 max-w-xl mx-auto">
+                        Here are the incredible keynote speakers from 4 top international universities for Materials and Science Engineering.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Keynote 1 -->
+                    <div class="rounded-3xl glass-panel border border-white/10 p-5 glass-card-hover text-center group">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/40 mb-5 relative">
+                            <img src="assets/img/keynotes-1.png" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop'" alt="Keynote Speaker 1" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <span class="px-3 py-1 text-[11px] font-bold rounded-full bg-brandOrange/20 text-brandOrange border border-brandOrange/30">Keynote 01</span>
+                        <h4 class="text-lg font-bold font-expletus text-white mt-3">Prof. Tatsuya Tokunaga</h4>
+                        <p class="text-xs text-slate-400 mt-1">Kyushu Institute of Technology &bull; Japan</p>
+                        <p class="text-xs text-slate-300 mt-3 italic line-clamp-3">Advanced phase transformation and functional metallic materials engineering.</p>
+                    </div>
+
+                    <!-- Keynote 2 -->
+                    <div class="rounded-3xl glass-panel border border-white/10 p-5 glass-card-hover text-center group">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/40 mb-5 relative">
+                            <img src="assets/img/keynotes-2.png" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop'" alt="Keynote Speaker 2" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <span class="px-3 py-1 text-[11px] font-bold rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Keynote 02</span>
+                        <h4 class="text-lg font-bold font-expletus text-white mt-3">Prof. Yu-Sheng Hsiao</h4>
+                        <p class="text-xs text-slate-400 mt-1">National Taiwan University of Science and Technology &bull; Taiwan</p>
+                        <p class="text-xs text-slate-300 mt-3 italic line-clamp-3">Conductive polymers, biomaterials, and electrochemical devices for bioelectronics.</p>
+                    </div>
+
+                    <!-- Keynote 3 -->
+                    <div class="rounded-3xl glass-panel border border-white/10 p-5 glass-card-hover text-center group">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/40 mb-5 relative">
+                            <img src="assets/img/keynotes-3.png" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop'" alt="Keynote Speaker 3" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <span class="px-3 py-1 text-[11px] font-bold rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Keynote 03</span>
+                        <h4 class="text-lg font-bold font-expletus text-white mt-3">Prof. Jun-Seob Lee</h4>
+                        <p class="text-xs text-slate-400 mt-1">Changwon National University &bull; South Korea</p>
+                        <p class="text-xs text-slate-300 mt-3 italic line-clamp-3">Nanostructured composites and innovative material design for energy storage.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Card -->
+            <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                <div class="rounded-3xl glass-panel p-8 sm:p-12 border border-white/15 text-center relative overflow-hidden">
+                    <div class="w-14 h-14 rounded-2xl bg-brandOrange/20 text-brandOrange flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold font-expletus text-white">Workshop Schedule & Parallel Sessions</h3>
+                    <p class="text-slate-300 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+                        The workshop will be held in 2 major sessions — the <span class="text-brandOrange font-semibold">Professor Keynote Session</span> and the <span class="text-brandOrange font-semibold">Student Oral Presentation Session</span>. Detailed room allocations and timeline guidelines are provided below.
+                    </p>
+                    <div class="mt-8 flex flex-wrap justify-center gap-4">
+                        <a href="https://drive.google.com/file/d/1qmaIF5FitZ1efs3Y1u_pwL6GLCo7Nt-y/view?usp=drive_link" target="_blank" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-brandOrange to-pink-600 text-white font-semibold text-sm shadow-xl shadow-orange-500/20 hover:scale-105 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                            <span>Download Schedule File (Google Drive)</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- ======================= PAGE 3: PARTICIPANT UNIVERSITIES ======================= -->
+        <section id="page-participant_universities" class="page-view hidden">
+            <!-- Section Header -->
+            <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center border-b border-white/10">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brandOrange">International Consortium</span>
+                <h1 class="text-3xl sm:text-5xl font-bold font-expletus text-white mt-2">
+                    Participating <span class="text-brandOrange">Universities & Institutions</span>
+                </h1>
+                <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mt-3">
+                    Professors and students from 4 premier engineering institutions collaborating to advance materials technology.
+                </p>
+            </div>
+
+            <!-- University Grid Showcase -->
+            <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+                <!-- 1. ITS Indonesia -->
+                <div class="rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                        <div class="lg:col-span-5 h-72 lg:h-auto relative bg-slate-900">
+                            <img src="assets/img/participant_its.jpg" onerror="this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=900&auto=format&fit=crop'" alt="ITS Surabaya" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 p-2 rounded-xl bg-darkCard/90 border border-white/10">
+                                <img src="assets/img/logo-its.png" onerror="this.src='https://placehold.co/120x60/111422/ffffff?text=ITS'" alt="ITS Logo" class="h-10 object-contain">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Host University</span>
+                                    <span class="text-xs text-slate-400 font-semibold">Surabaya, Indonesia 🇮🇩</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-expletus text-white mt-3">
+                                    Department of <span class="text-brandOrange">Materials and Metallurgical</span> Engineering
+                                </h3>
+                                <p class="text-sm font-semibold text-slate-300">Institut Teknologi Sepuluh Nopember (ITS)</p>
+                                <p class="text-slate-400 text-sm leading-relaxed mt-3 text-justify">
+                                    Department of Materials and Metallurgical Engineering has the scientific field, expertise, and profession of Materials Engineering (Materials Science). In general, Materials and Metallurgical Engineering studies the properties of metal, ceramic, polymer, and composite materials along with their engineering technology. Materials engineering technology is related to material structures and manufacturing processes such as casting technology, welding, heat treatment, and others.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-white/10">
+                                <a href="https://www.its.ac.id/tmaterial/id/beranda/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-brandOrange text-white text-xs font-semibold transition-all">
+                                    <span>Visit Department Website</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. NTUST Taiwan -->
+                <div class="rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                        <div class="lg:col-span-5 h-72 lg:h-auto relative bg-slate-900">
+                            <img src="assets/img/participant_taiwan.jpg" onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=900&auto=format&fit=crop'" alt="NTUST Taiwan" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 p-2 rounded-xl bg-darkCard/90 border border-white/10">
+                                <img src="assets/img/logo-ntusc.png" onerror="this.src='https://placehold.co/120x60/111422/ffffff?text=NTUST'" alt="NTUST Logo" class="h-10 object-contain">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Partner Institution</span>
+                                    <span class="text-xs text-slate-400 font-semibold">Taipei, Taiwan 🇹🇼</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-expletus text-white mt-3">
+                                    Department of <span class="text-brandOrange">Materials Science</span> and Engineering
+                                </h3>
+                                <p class="text-sm font-semibold text-slate-300">National Taiwan University of Science and Technology (NTUST)</p>
+                                <p class="text-slate-400 text-sm leading-relaxed mt-3 text-justify">
+                                    The Department of Materials Science and Engineering, established in 1975, is a highly respected institution within the Taiwanese materials science community. By adopting a unique interdisciplinary approach, we provide the scholarly training needed to address the whole range of materials, from complex materials in polymer engineering, to electronic, optoelectronic, ceramic, and metallic materials, to advanced materials in nanotechnology and biotechnology.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-white/10">
+                                <a href="https://mse.ntust.edu.tw/index.php" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-brandOrange text-white text-xs font-semibold transition-all">
+                                    <span>Visit Department Website</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Kyutech Japan -->
+                <div class="rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                        <div class="lg:col-span-5 h-72 lg:h-auto relative bg-slate-900">
+                            <img src="assets/img/participant_japan.jpg" onerror="this.src='https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=900&auto=format&fit=crop'" alt="Kyutech Japan" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 p-2 rounded-xl bg-darkCard/90 border border-white/10">
+                                <img src="assets/img/logo-kyutech.png" onerror="this.src='https://placehold.co/120x60/111422/ffffff?text=Kyutech'" alt="Kyutech Logo" class="h-10 object-contain">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/30">Partner Institution</span>
+                                    <span class="text-xs text-slate-400 font-semibold">Fukuoka, Japan 🇯🇵</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-expletus text-white mt-3">
+                                    Department of <span class="text-brandOrange">Materials Science</span> and Engineering
+                                </h3>
+                                <p class="text-sm font-semibold text-slate-300">Kyushu Institute of Technology (Kyutech)</p>
+                                <p class="text-slate-400 text-sm leading-relaxed mt-3 text-justify">
+                                    Materials Science and Engineering is one of the core fields associated with materials such as steels, alloys, semiconductors, ceramics, and composites. We investigate the relationship between material properties and their atomic and/or nanoscopic structures, and design new materials. We also conduct applied research of processing, bonding, recycling, and so forth, for industrial importance. Our goal is to contribute to solutions for global issues such as environmental problems, through application of materials.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-white/10">
+                                <a href="http://w3.matsc.kyutech.ac.jp/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-brandOrange text-white text-xs font-semibold transition-all">
+                                    <span>Visit Department Website</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. CWNU South Korea -->
+                <div class="rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                        <div class="lg:col-span-5 h-72 lg:h-auto relative bg-slate-900">
+                            <img src="assets/img/participant_south_korea.jpg" onerror="this.src='https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=900&auto=format&fit=crop'" alt="CWNU Korea" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 p-2 rounded-xl bg-darkCard/90 border border-white/10">
+                                <img src="assets/img/logo-cwnu.png" onerror="this.src='https://placehold.co/120x60/111422/ffffff?text=CWNU'" alt="CWNU Logo" class="h-10 object-contain">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Partner Institution</span>
+                                    <span class="text-xs text-slate-400 font-semibold">Changwon, South Korea 🇰🇷</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-expletus text-white mt-3">
+                                    School of <span class="text-brandOrange">Materials Science</span> and Engineering
+                                </h3>
+                                <p class="text-sm font-semibold text-slate-300">Changwon National University (CWNU)</p>
+                                <p class="text-slate-400 text-sm leading-relaxed mt-3 text-justify">
+                                    New materials engineering is an interdisciplinary field that explores the correlation between the structure and properties of materials and applies it to various fields of science and engineering. The structure and properties of materials handled in new materials engineering start from the atomic or molecular level, and the development of new materials is an essential basic condition for the implementation of cutting-edge science and technology.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-white/10">
+                                <a href="https://www.changwon.ac.kr/material/main.do" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-brandOrange text-white text-xs font-semibold transition-all">
+                                    <span>Visit Department Website</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================= PAGE 4: ORGANIZER ======================= -->
+        <section id="page-organizer" class="page-view hidden">
+            <!-- Organizer Hero -->
+            <div class="relative py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/img/bg-organizers.jpg" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop'" alt="Organizers Background" class="w-full h-full object-cover opacity-20 filter blur-[1px]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/90 to-transparent"></div>
+                </div>
+
+                <div class="relative z-10 max-w-7xl mx-auto text-center space-y-4">
+                    <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-brandOrange/20 text-brandOrange border border-brandOrange/30">People Behind ISWMSE</span>
+                    <h1 class="text-3xl sm:text-5xl font-bold font-expletus text-white">
+                        The Dedicated <span class="text-brandOrange">Organizers</span>
+                    </h1>
+                    <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
+                        Discover the passionate and dedicated committee members who are driving innovation and international collaboration for ISWMSE 2026.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Committee Content -->
+            <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12">
+                <!-- Chairperson Card Highlight -->
+                <div class="max-w-xl mx-auto p-8 rounded-3xl glass-panel border-2 border-brandOrange/80 shadow-2xl shadow-orange-500/20 text-center relative overflow-hidden group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brandOrange to-pink-500 mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg mb-4">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-brandOrange font-bold">Conference Chairperson</span>
+                    <h3 class="text-2xl font-bold font-expletus text-white mt-1">Yusuf Pradesar, S.T., M.T., M.Sc., Ph.D.</h3>
+                    <p class="text-slate-400 text-xs mt-1">Institut Teknologi Sepuluh Nopember (ITS)</p>
+                </div>
+
+                <!-- 4 Participating Institutional Committees -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 1. ITS Committee -->
+                    <div class="p-8 rounded-3xl glass-panel border border-white/10 glass-card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-4 pb-6 border-b border-white/10">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 p-2 flex items-center justify-center">
+                                    <img src="assets/img/logo-its.png" onerror="this.src='https://placehold.co/100x60/111422/ffffff?text=ITS'" alt="ITS Logo" class="max-w-full max-h-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white font-expletus text-lg">Institut Teknologi Sepuluh Nopember</h4>
+                                    <span class="text-xs text-brandOrange font-semibold">Indonesia</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-5">
+                                <div>
+                                    <span class="text-xs font-bold text-brandCyan uppercase tracking-wider block mb-2"><i class="fa-solid fa-graduation-cap mr-1"></i> Faculty Committee</span>
+                                    <ul class="text-sm text-slate-300 space-y-1 pl-1">
+                                        <li>1. Prof. Diah Susanti</li>
+                                        <li>2. Prof. Yusuf Pradesar</li>
+                                        <li>3. Mrs. Amaliya Rasyida</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-2"><i class="fa-solid fa-users mr-1"></i> Student Organizers</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Reynard Hanif</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Azi Fahrudin Ahsani</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Rafi Mubarak</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Himawan Rashad</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Raditya Khansa Wijaya</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. CWNU Committee -->
+                    <div class="p-8 rounded-3xl glass-panel border border-white/10 glass-card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-4 pb-6 border-b border-white/10">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 p-2 flex items-center justify-center">
+                                    <img src="assets/img/logo-cwnu.png" onerror="this.src='https://placehold.co/100x60/111422/ffffff?text=CWNU'" alt="CWNU Logo" class="max-w-full max-h-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white font-expletus text-lg">Changwon National University</h4>
+                                    <span class="text-xs text-brandOrange font-semibold">South Korea</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-5">
+                                <div>
+                                    <span class="text-xs font-bold text-brandCyan uppercase tracking-wider block mb-2"><i class="fa-solid fa-graduation-cap mr-1"></i> Faculty Committee</span>
+                                    <ul class="text-sm text-slate-300 space-y-1 pl-1">
+                                        <li>1. Prof. Jun-Seob Lee</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-2"><i class="fa-solid fa-users mr-1"></i> Student Organizers</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Ms. Jae-Min Jung</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Chol-Hyeok Yang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. NTUST Committee -->
+                    <div class="p-8 rounded-3xl glass-panel border border-white/10 glass-card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-4 pb-6 border-b border-white/10">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 p-2 flex items-center justify-center">
+                                    <img src="assets/img/logo-ntusc.png" onerror="this.src='https://placehold.co/100x60/111422/ffffff?text=NTUST'" alt="NTUST Logo" class="max-w-full max-h-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white font-expletus text-lg">National Taiwan Univ. of Science and Tech.</h4>
+                                    <span class="text-xs text-brandOrange font-semibold">Taiwan</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-5">
+                                <div>
+                                    <span class="text-xs font-bold text-brandCyan uppercase tracking-wider block mb-2"><i class="fa-solid fa-graduation-cap mr-1"></i> Faculty Committee</span>
+                                    <ul class="text-sm text-slate-300 space-y-1 pl-1">
+                                        <li>1. Prof. Yu-Sheng Hsiao</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-2"><i class="fa-solid fa-users mr-1"></i> Student Organizers</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Meng-Chun Chiu</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Hsuan-Cheng Huang</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Tao-Jyun Hsu</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Tsung-Lin Li</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Sheng-Ping Chang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Kyutech Committee -->
+                    <div class="p-8 rounded-3xl glass-panel border border-white/10 glass-card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-4 pb-6 border-b border-white/10">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 p-2 flex items-center justify-center">
+                                    <img src="assets/img/logo-kyutech.png" onerror="this.src='https://placehold.co/100x60/111422/ffffff?text=Kyutech'" alt="Kyutech Logo" class="max-w-full max-h-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white font-expletus text-lg">Kyushu Institute of Technology</h4>
+                                    <span class="text-xs text-brandOrange font-semibold">Japan</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-5">
+                                <div>
+                                    <span class="text-xs font-bold text-brandCyan uppercase tracking-wider block mb-2"><i class="fa-solid fa-graduation-cap mr-1"></i> Faculty Committee</span>
+                                    <ul class="text-sm text-slate-300 space-y-1 pl-1">
+                                        <li>1. Prof. Tatsuya Tokunaga</li>
+                                        <li>2. Prof. Ken'ichi Yokoyama</li>
+                                        <li>3. Prof. Kaori Seino</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-2"><i class="fa-solid fa-users mr-1"></i> Student Organizers</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Kuga Ando</span>
+                                        <span class="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200">Mr. Kota Fujiwara</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="mt-20 border-t border-white/10 bg-black/90 text-white pt-16 pb-12 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+                <!-- Col 1: Secretariat Address (4 Cols) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-brandOrange flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <h4 class="font-expletus text-xl font-bold text-white">ISWMSE <span class="text-brandOrange">2026</span></h4>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Department of Materials and Metallurgical Engineering<br>
+                        Faculty of Industrial Technology and Systems Engineering<br>
+                        Institut Teknologi Sepuluh Nopember (ITS)<br>
+                        Building MT 2nd Floor, Sukolilo Campus, Surabaya 60111
+                    </p>
+                    <div class="text-xs text-slate-300 space-y-1 pt-2">
+                        <p><i class="fa-solid fa-phone text-brandOrange mr-2"></i> (031) 5997026, (031) 5943645</p>
+                        <p><i class="fa-solid fa-envelope text-brandOrange mr-2"></i> tmaterial@its.ac.id</p>
+                        <p><i class="fa-solid fa-paper-plane text-brandOrange mr-2"></i> ISWMSE.ITS@gmail.com</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links (2 Cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h5 class="text-sm font-bold font-expletus uppercase tracking-wider text-white">Navigation</h5>
+                    <ul class="text-xs text-slate-400 space-y-2.5">
+                        <li><a href="#home" onclick="switchPage('home')" class="hover:text-brandOrange transition-colors">Home</a></li>
+                        <li><a href="#program" onclick="switchPage('program')" class="hover:text-brandOrange transition-colors">Program</a></li>
+                        <li><a href="#participant_universities" onclick="switchPage('participant_universities')" class="hover:text-brandOrange transition-colors">Participant Universities</a></li>
+                        <li><a href="#organizer" onclick="switchPage('organizer')" class="hover:text-brandOrange transition-colors">Organizer</a></li>
+                        <li><a href="http://www.matsc.kyutech.ac.jp/iswmse2022/index.html" target="_blank" class="hover:text-brandOrange transition-colors">ISWMSE 2022</a></li>
+                        <li><a href="http://www.matsc.kyutech.ac.jp/iswmse2021/index.html" target="_blank" class="hover:text-brandOrange transition-colors">ISWMSE 2021</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Social Media (2 Cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h5 class="text-sm font-bold font-expletus uppercase tracking-wider text-white">Follow Us</h5>
+                    <div class="space-y-2 text-xs text-slate-400">
+                        <a href="https://www.instagram.com/dtmm_its" target="_blank" class="flex items-center gap-2 hover:text-brandOrange transition-colors">
+                            <i class="fa-brands fa-instagram text-base"></i> <span>Instagram</span>
+                        </a>
+                        <a href="https://www.youtube.com/@dtmm_its" target="_blank" class="flex items-center gap-2 hover:text-brandOrange transition-colors">
+                            <i class="fa-brands fa-youtube text-base"></i> <span>YouTube</span>
+                        </a>
+                        <a href="https://www.facebook.com/materialdanmetalurgi.ftirsits" target="_blank" class="flex items-center gap-2 hover:text-brandOrange transition-colors">
+                            <i class="fa-brands fa-facebook text-base"></i> <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 4: Newsletter Subscription (4 Cols) -->
+                <div class="lg:col-span-4 space-y-3">
+                    <h5 class="text-sm font-bold font-expletus uppercase tracking-wider text-white">Stay Updated</h5>
+                    <p class="text-xs text-slate-400">Leave your email to get the latest schedule updates and keynote announcements directly in your inbox.</p>
+                    
+                    <form id="subscribeForm" onsubmit="handleSubscribe(event)" class="relative mt-2">
+                        <input type="email" id="subEmail" required placeholder="Enter your email address" class="w-full py-3 pl-4 pr-28 rounded-full bg-white/5 border border-white/15 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brandOrange transition-all">
+                        <button type="submit" class="absolute right-1 top-1 bottom-1 px-5 rounded-full bg-brandOrange hover:bg-orange-600 text-white font-semibold text-xs transition-colors flex items-center justify-center">
+                            Send
+                        </button>
+                    </form>
+                    <p id="subNotice" class="text-[11px] text-emerald-400 hidden mt-1"><i class="fa-solid fa-circle-check mr-1"></i> Thank you! You will receive ISWMSE 2026 updates.</p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <span>&copy; 2026 ISWMSE - International Student Workshop on Materials Science and Engineering. All rights reserved.</span>
+                <span>Powered by Node.js & Vercel</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // Page Switching Routing Logic
+        function switchPage(pageId) {
+            // Update hash without jump
+            window.location.hash = pageId;
+
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+
+            // Show selected page
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update nav active classes
+            const navLinks = document.querySelectorAll('.nav-btn');
+            navLinks.forEach(link => link.classList.remove('active-tab'));
+            const activeNav = document.getElementById(`nav-${pageId}`);
+            if (activeNav) {
+                activeNav.classList.add('active-tab');
+            }
+
+            // Scroll smoothly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle Hash change on load or back/forward
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentHash = window.location.hash.replace('#', '') || 'home';
+            if (['home', 'program', 'participant_universities', 'organizer'].includes(currentHash)) {
+                switchPage(currentHash);
+            } else {
+                switchPage('home');
+            }
+            startCounters();
+        });
+
+        window.addEventListener('hashchange', () => {
+            const currentHash = window.location.hash.replace('#', '') || 'home';
+            if (['home', 'program', 'participant_universities', 'organizer'].includes(currentHash)) {
+                switchPage(currentHash);
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Interactive Home Slider Data & Logic
+        const sliderData = [
+            {
+                country: "Indonesia",
+                title: 'Department of <span class="text-brandOrange">Materials and Metallurgical</span> Engineering',
+                univ: "Sepuluh Nopember Institute of Technology (ITS)",
+                img: "assets/img/departemen-1.jpg",
+                fallbackImg: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=900&auto=format&fit=crop",
+                link: "https://www.its.ac.id/tmaterial/id/beranda/"
+            },
+            {
+                country: "Taiwan",
+                title: 'Department of <span class="text-brandOrange">Materials Science</span> and Engineering',
+                univ: "National Taiwan University of Science and Technology (NTUST)",
+                img: "assets/img/departemen-2.jpg",
+                fallbackImg: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=900&auto=format&fit=crop",
+                link: "https://mse.ntust.edu.tw/index.php"
+            },
+            {
+                country: "Japan",
+                title: 'Department of <span class="text-brandOrange">Materials Science</span> and Engineering',
+                univ: "Kyushu Institute of Technology (Kyutech)",
+                img: "assets/img/departemen-3.jpg",
+                fallbackImg: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=900&auto=format&fit=crop",
+                link: "http://w3.matsc.kyutech.ac.jp/"
+            },
+            {
+                country: "South Korea",
+                title: 'School of <span class="text-brandOrange">Materials Science</span> and Engineering',
+                univ: "Changwon National University (CWNU)",
+                img: "assets/img/departemen-4.jpg",
+                fallbackImg: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=900&auto=format&fit=crop",
+                link: "https://www.changwon.ac.kr/material/main.do"
+            }
+        ];
+
+        let currentSliderIdx = 0;
+        const sliderImg = document.getElementById('homeSliderImg');
+        const sliderTitle = document.getElementById('homeSliderTitle');
+        const sliderUniv = document.getElementById('homeSliderUniv');
+        const sliderCountry = document.getElementById('homeSliderCountry');
+        const sliderLink = document.getElementById('homeSliderLink');
+
+        function updateSlider(index) {
+            if (!sliderImg) return;
+            sliderImg.style.opacity = '0';
+            setTimeout(() => {
+                const item = sliderData[index];
+                sliderImg.src = item.img;
+                sliderImg.onerror = () => { sliderImg.src = item.fallbackImg; };
+                sliderTitle.innerHTML = item.title;
+                sliderUniv.textContent = item.univ;
+                sliderCountry.textContent = item.country;
+                sliderLink.href = item.link;
+                sliderImg.style.opacity = '1';
+            }, 250);
+        }
+
+        document.getElementById('sliderPrevBtn')?.addEventListener('click', () => {
+            currentSliderIdx = (currentSliderIdx - 1 + sliderData.length) % sliderData.length;
+            updateSlider(currentSliderIdx);
+        });
+
+        document.getElementById('sliderNextBtn')?.addEventListener('click', () => {
+            currentSliderIdx = (currentSliderIdx + 1) % sliderData.length;
+            updateSlider(currentSliderIdx);
+        });
+
+        // Animated Statistics Counters
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = 2000 / target;
+                const updateCount = () => {
+                    count++;
+                    counter.innerText = count;
+                    if (count < target) {
+                        setTimeout(updateCount, speed);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Subscription form handle
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const input = document.getElementById('subEmail');
+            const notice = document.getElementById('subNotice');
+            if (input && input.value) {
+                input.value = '';
+                notice.classList.remove('hidden');
+                setTimeout(() => {
+                    notice.classList.add('hidden');
+                }, 5000);
+            }
+        }
+    </script>
 </body>
 </html>
