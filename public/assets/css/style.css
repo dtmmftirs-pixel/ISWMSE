@@ -2,7 +2,7 @@
 
 :root {
   --bg-dark: #0a0c10;
-  --bg-card: rgba(18, 22, 31, 0.75);
+  --bg-card: rgba(18, 22, 31, 0.75); 
   --bg-card-hover: rgba(26, 32, 45, 0.9);
   --color-primary: #686CE4;
   --color-accent: #FF6118;
