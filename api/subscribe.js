@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   // Hanya izinkan HTTP POST
   if (req.method !== 'POST') {
     return res.status(405).json({
-      status: 'error',
+      status: 'error', 
       message: 'Method not allowed. Use POST.'
     });
   }
